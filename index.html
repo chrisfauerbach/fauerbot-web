@@ -25,6 +25,7 @@
       <a href="#faq">FAQ</a>
       <a class="nav-key" href="devlog/blog/index.html">Devlog</a>
       <a class="nav-key nav-tech" href="how-it-works.html">How it works</a>
+      <a class="nav-key nav-tech" href="platforms.html">Platforms</a>
     </nav>
   </div>
 </header>
@@ -69,7 +70,7 @@
           </div>
         </div>
         <div class="stat">
-          <p class="stat-big"><span data-devlog-count>23</span> posts</p>
+          <p class="stat-big"><span data-devlog-count>25</span> posts</p>
           <p class="stat-label">in the devlog, mistakes included</p>
         </div>
       </div>
@@ -253,6 +254,7 @@
         <details><summary>Are you building your own electronics?</summary><p>Eventually. The first real robot uses a ready-made board from <a href="https://openmower.de/" rel="noopener">OpenMower</a>, an open-source project for converting robot mowers, because a board that's known to work is the fastest way to learn the mower's wiring. After that we plan to design our own board. It will have the hardware blade interlock built in and use parts anyone can buy. OpenMower publishes its YardForce board design under a licence that allows reuse, which saves most of the detective work. <a href="https://github.com/chrisfauerbach/fauerbot1/blob/main/hardware/controller-options.md" rel="noopener">The options, compared</a>.</p></details>
         <details><summary>Does it need an app or the internet?</summary><p>No. It runs on its own computer. Two buttons on the robot start, pause, send it home and stop it. A phone app is planned for editing the map, and it will talk to the robot directly.</p></details>
         <details><summary>What about pets and wildlife?</summary><p>It doesn't mow between dusk and dawn, when hedgehogs are about. It stops for things it sees in its path. And it won't mow grass that's grown too long to spot a small animal in: it goes home and tells you instead.</p></details>
+        <details><summary>Will there be other models?</summary><p>Maybe. Ion, the one we're building first, is one of six first-pass designs: a small one for side passages, a four-wheel-drive one for rough ground, one on tracks for slopes, a wide twin-blade one for big lawns, and one with a sensor mast and a solar roof. Each is a profile the same software reads, and each passes a quick test in the simulator. Only Ion is being built. <a href="platforms.html">See the platforms</a>.</p></details>
         <details><summary>Who's building it?</summary><p>Chris Fauerbach, a Python developer learning robotics, working with Claude as an AI pair-engineer. The devlog shows how.</p></details>
       </div>
     </div>
@@ -263,9 +265,12 @@
       <div>
         <p class="eyebrow">For the curious</p>
         <h2>Under the hood</h2>
-        <p class="section-lede">The simulation, the bugs it caught, the parts list, the wiring, the safety interlock and the 3D design, all in detail.</p>
+        <p class="section-lede">The simulation, the bugs it caught, the parts list, the wiring, the safety interlock and the 3D design, all in detail. And the six robot platforms one software stack runs, from the small Quark to the twin-blade Tachyon.</p>
       </div>
-      <a class="btn btn-primary" href="how-it-works.html">How it works →</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="how-it-works.html">How it works →</a>
+        <a class="btn btn-ghost" href="platforms.html">Six platforms →</a>
+      </div>
     </div>
   </section>
 
@@ -277,10 +282,20 @@
           <h2>Follow the build</h2>
           <p class="section-lede">One post per step, written as we go. Fair warning: they get technical. Follow along with the <a href="devlog/feed_rss_created.xml">RSS feed</a>.</p>
         </div>
-        <a class="btn btn-ghost" href="devlog/blog/index.html"><span>All <span data-devlog-count>23</span> posts</span></a>
+        <a class="btn btn-ghost" href="devlog/blog/index.html"><span>All <span data-devlog-count>25</span> posts</span></a>
       </div>
       <div class="posts">
         <!-- devlog:start -->
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/10/six-platforms.html">Six robots, one brain</a></h3>
+          <p>Chris: &quot;I bet I will come up with a few different hardware platforms. Two-wheel drive, four-wheel drive, tank drive, taller, shorter, wider.&quot; A review of the code found the robot&#x27;s size written out in at least six…</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/10/lap-corners.html">Corners: stop short, turn, merge</a></h3>
+          <p>The first back-yard mow with the 3D lidar (backyard-raised-2) ended against the fence. On the outer lap, 35 cm from the lawn&#x27;s edge, the robot drove right up to each corner before turning. That put its nose 14 cm past…</p>
+        </article>
         <article class="post">
           <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Project notes</p>
           <h3><a href="devlog/blog/2026/11/10/dollars-a-feed-and-a-board.html">Dollars, a feed, and who makes the board</a></h3>
@@ -300,16 +315,6 @@
           <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
           <h3><a href="devlog/blog/2026/11/10/the-long-grass-rule.html">The long-grass rule, and three ways to trap a robot in a patch of grass</a></h3>
           <p>Last night&#x27;s result was uncomfortable: the 3D lidar sees a 10 cm hedgehog in 5 cm grass and loses it in 7 cm grass. Height is all the lidar measures, so the lawn has to stay short enough for an animal to stand out of…</p>
-        </article>
-        <article class="post">
-          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
-          <h3><a href="devlog/blog/2026/11/10/grass-is-not-an-obstacle.html">Grass is not an obstacle (it took nine stops to get there)</a></h3>
-          <p>Until tonight the sim lawn was a flat green plane. Real grass is 5 to 10 cm tall, and our 3D-lidar safety gate stopped for anything 3 cm above the ground. So we grew grass the lidar can see, and the robot never left the…</p>
-        </article>
-        <article class="post">
-          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Simulation</p>
-          <h3><a href="devlog/blog/2026/11/09/the-night-rule.html">Seven decisions, and the cheapest hedgehog protection there is</a></h3>
-          <p>We reviewed the Phase 5 (perception) plan together and made all seven decisions in it. Then we built the first piece, which needs no camera and no AI: the robot doesn&#x27;t mow in the dark.</p>
         </article>
         <!-- devlog:end -->
       </div>

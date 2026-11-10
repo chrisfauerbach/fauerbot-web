@@ -270,5 +270,5 @@
     return { scene, mower };
   }
 
-  global.FauerbotM1 = { buildMower, buildScene, DIM };
+  global.FauerbotM1 = { buildMower, buildScene, environment, lawnTexture, DIM };
 })(window);

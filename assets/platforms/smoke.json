@@ -1,0 +1,44 @@
+{
+  "run": "smoke-4",
+  "date": "2026-11-10",
+  "results": {
+    "ion": {
+      "result": "PASS",
+      "coverage": "99.1%",
+      "turn": "1.00",
+      "run": "smoke-4-ion"
+    },
+    "quark": {
+      "result": "PASS",
+      "coverage": "99.2%",
+      "turn": "1.00",
+      "run": "smoke-4-quark"
+    },
+    "vector": {
+      "result": "FAIL",
+      "coverage": "98.0%",
+      "turn": "0.99",
+      "run": "smoke-4-vector",
+      "note": "docking (fix in progress)"
+    },
+    "graviton": {
+      "result": "PASS",
+      "coverage": "99.0%",
+      "turn": "1.11",
+      "run": "smoke-4-graviton"
+    },
+    "tachyon": {
+      "result": "FAIL",
+      "coverage": "0.0%",
+      "turn": "too few turns",
+      "run": "smoke-4-tachyon",
+      "note": "stuck leaving the dock (fix in progress)"
+    },
+    "photon": {
+      "result": "PASS",
+      "coverage": "99.3%",
+      "turn": "1.00",
+      "run": "smoke-4-photon"
+    }
+  }
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Photon: Fauerbot platforms</title>
+<meta name="description" content="Photon, the Fauerbot sentinel: A mast to see further, a roof to charge from the sun. 3D render, battle card, drawings, specs, parts list and build plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="Fauerbot devlog" href="../devlog/feed_rss_created.xml">
+<style>
+.pf-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.pf-nav a { font: 500 var(--step--1)/1 var(--font-mono); padding: 8px 12px; border: 1px solid var(--line);
+  border-radius: 999px; text-decoration: none; background: var(--card); }
+.pf-nav a[aria-current] { border-color: var(--ink); font-weight: 700; }
+.pf { padding-block: clamp(28px, 4vw, 56px); border-top: 1px solid var(--line); }
+.pf:nth-of-type(even) { background: var(--band); }
+.pf-grid { display: grid; gap: 20px; margin-top: 20px; }
+@media (min-width: 900px) { .pf-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+.pf-figs { display: grid; gap: 12px; min-width: 0; }
+.pf-figs figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px; }
+.pf-figs figcaption { font-size: var(--step--1); color: var(--ink-2); padding: 4px 6px 0; }
+.pf-svg { width: 100%; height: auto; display: block; max-height: 300px; }
+.pf-body { fill: color-mix(in srgb, var(--a, var(--hivis)) 22%, var(--card)); stroke: var(--a, var(--hivis)); stroke-width: 2; }
+.pf-swath { fill: color-mix(in srgb, var(--done) 16%, transparent); }
+.pf-blade { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.pf-bladeline { stroke: var(--ink-2); stroke-width: 3; }
+.pf-wheel { fill: #1d2420; stroke: var(--ink-2); stroke-width: 1; }
+.pf-sweep { fill: none; stroke: var(--truth); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.pf-sensor { fill: var(--truth); }
+.pf-gnss { fill: var(--card); stroke: var(--truth); stroke-width: 2.5; }
+.pf-centre { fill: none; stroke: var(--ink); stroke-width: 2; }
+.pf-dim { stroke: var(--ink-2); stroke-width: 1.5; }
+.pf-ground { stroke: var(--done); stroke-width: 3; }
+.pf-mast { stroke: var(--ink-2); stroke-width: 6; }
+.pf-beam { stroke: var(--truth); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.pf-label { font: 500 17px var(--font-mono); fill: var(--ink-2); }
+.pf-specs { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.pf-specs th, .pf-specs td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pf-specs th { font-weight: 600; width: 42%; }
+.pf-steps { margin: 8px 0 0; padding-left: 1.4em; display: grid; gap: 10px; }
+.pf-steps li { display: grid; gap: 2px; }
+.pf-test { font-size: var(--step--1); color: var(--done); }
+.pf-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: var(--step--1); color: var(--ink-2); margin-top: 10px; }
+.bom .num { text-align: right; white-space: nowrap; }
+
+/* lineup */
+.lineup { margin: 28px 0 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #cfe3f2; }
+.lineup img { display: block; width: 100%; height: auto; }
+.lineup figcaption { font-size: var(--step--1); color: var(--ink-2); padding: 8px 12px; background: var(--card); }
+
+/* battle cards */
+.bc-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); margin-top: 24px; }
+.bc { --a: #d9500c; position: relative; display: flex; flex-direction: column; border-radius: 18px; overflow: hidden;
+  background: var(--card); border: 2px solid color-mix(in srgb, var(--a) 70%, var(--line));
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--a) 30%, transparent), 0 14px 34px -18px color-mix(in srgb, var(--a) 70%, #000);
+  transition: transform .2s ease, box-shadow .2s ease; }
+.bc:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -18px color-mix(in srgb, var(--a) 85%, #000); }
+.bc-art { position: relative; display: block; aspect-ratio: 800 / 620; overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 22px),
+    radial-gradient(120% 90% at 50% 15%, color-mix(in srgb, var(--a) 45%, #fff) 0%, var(--a) 52%, color-mix(in srgb, var(--a) 45%, #000) 100%); }
+.bc-art::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 48%, transparent 60%);
+  transform: translateX(-60%); transition: transform .8s ease; }
+.bc:hover .bc-art::after { transform: translateX(60%); }
+.bc-art img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
+.bc-gen, .bc-mass { position: absolute; z-index: 1; top: 12px; font: 700 0.8rem/1 var(--font-mono); color: #fff;
+  background: rgba(0,0,0,.38); padding: 6px 9px; border-radius: 999px; backdrop-filter: blur(4px); }
+.bc-gen { left: 12px; letter-spacing: .08em; }
+.bc-mass { right: 12px; font-size: 0.95rem; }
+.bc-mass small { font-size: .7em; margin-left: 2px; opacity: .85; }
+.bc-body { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px 18px; flex: 1; }
+.bc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.bc-head h3 { margin: 0; font: 800 clamp(1.7rem, 1.3rem + 1.2vw, 2.1rem)/1 var(--font-display); letter-spacing: -0.02em; }
+.bc-head h3 a { color: inherit; text-decoration: none; }
+.bc-role { font: 700 0.75rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: .12em;
+  color: color-mix(in srgb, var(--a) 75%, var(--ink)); border: 1.5px solid currentColor; padding: 5px 8px; border-radius: 6px; white-space: nowrap; }
+.bc-tag { margin: 0; color: var(--ink-2); }
+.bc-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 0.75rem/1 var(--font-mono); padding: 5px 8px; border-radius: 999px; background: var(--band); border: 1px solid var(--line); }
+.chip-live { background: color-mix(in srgb, var(--done) 18%, var(--card)); border-color: var(--done); color: var(--done); font-weight: 700; }
+.bc-stats { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 7px; }
+.bc-stats li { display: grid; grid-template-columns: 5.4rem 1fr 7.4rem; align-items: center; gap: 8px; font-size: 0.82rem; }
+.bc-k { font: 600 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+.bc-bar { height: 9px; border-radius: 99px; background: color-mix(in srgb, var(--ink) 10%, transparent); overflow: hidden; }
+.bc-bar i { display: block; height: 100%; border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--a) 60%, #fff), var(--a)); }
+.bc-v { font: 500 0.78rem/1 var(--font-mono); text-align: right; white-space: nowrap; }
+.bc-sp, .bc-wk { margin: 0; font-size: 0.92rem; padding: 8px 10px; border-radius: 8px; }
+.bc-sp { background: color-mix(in srgb, var(--a) 13%, var(--card)); }
+.bc-wk { background: color-mix(in srgb, var(--ink) 6%, var(--card)); }
+.bc-sp b, .bc-wk b { display: block; font: 700 0.7rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+.bc-sp b::before { content: "⚡ "; }
+.bc-wk b::before { content: "▼ "; }
+.bc-foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.85rem; padding-top: 4px; }
+.bc-foot > a { font-weight: 600; }
+.smoke { font: 500 0.75rem/1.3 var(--font-mono); }
+.smoke-pass { color: var(--done); }
+.smoke-fail { color: var(--hivis); }
+.smoke-none { color: var(--ink-2); }
+
+/* head to head */
+.vs { margin-top: 24px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: clamp(14px, 3vw, 24px); }
+.vs-pick { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+.vs-pick select { font: 700 1.05rem var(--font-display); padding: 10px 12px; border-radius: 10px; border: 2px solid var(--line);
+  background: var(--bg); color: var(--ink); width: 100%; min-width: 0; }
+.vs-x { font: 800 1.4rem var(--font-display); color: var(--hivis); }
+.vs-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px auto 0; max-width: 620px; }
+.vs-imgs div { border-radius: 10px; aspect-ratio: 800/620; background: radial-gradient(120% 90% at 50% 15%, color-mix(in srgb, var(--a) 45%, #fff), var(--a) 55%, color-mix(in srgb, var(--a) 45%, #000)); }
+.vs-imgs img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.vs table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.92rem; }
+.vs td, .vs th { padding: 8px 6px; border-bottom: 1px solid var(--line); }
+.vs th { font: 600 0.72rem var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); text-align: center; }
+.vs td { width: 40%; font-family: var(--font-mono); }
+.vs td:first-child { text-align: right; }
+.vs td.win { font-weight: 700; color: var(--done); }
+.vs td.win::after { content: " ★"; }
+.vs td:first-child.win::after { content: ""; }
+.vs td:first-child.win::before { content: "★ "; }
+.vs-score { text-align: center; font: 800 1.3rem var(--font-display); margin-top: 12px; }
+.vs-note { font-size: var(--step--1); color: var(--ink-2); margin: 10px 0 0; }
+
+/* robot page */
+.hero-r { position: relative; margin: 0; background: #cfe3f2; }
+.hero-r img, .hero-r canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.hero-r canvas { touch-action: none; cursor: grab; }
+.hero-r .hero-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(14px, 3vw, 28px);
+  background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff; pointer-events: none; }
+.hero-cap h1 { margin: 0; font: 800 clamp(2.4rem, 1.6rem + 5vw, 5rem)/0.95 var(--font-display); color: #fff; letter-spacing: -0.03em; }
+.hero-cap p { margin: 6px 0 0; font-size: var(--step-1); }
+.spin { position: absolute; top: 14px; right: 14px; font: 600 0.9rem var(--font-body); padding: 9px 14px; border-radius: 999px;
+  border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; backdrop-filter: blur(4px); }
+.spin:hover { background: rgba(0,0,0,.75); }
+.r-top { display: grid; gap: 22px; align-items: start; }
+@media (min-width: 900px) { .r-top { grid-template-columns: minmax(0, 380px) minmax(0, 1fr); } }
+.r-top .bc { max-width: 420px; }
+.pager { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="../index.html" aria-label="Fauerbot home">fauerbot<span class="wordmark-dot" aria-hidden="true"></span></a>
+    <nav aria-label="Sections">
+      <a class="nav-key" href="../index.html">← The project</a>
+      <a class="nav-key" href="../platforms.html">Platforms</a>
+      <a class="nav-key" href="../how-it-works.html">How it works</a>
+      <a class="nav-key" href="../devlog/blog/index.html">Devlog</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" style="--a:#e0a400">
+  <figure class="hero-r" data-robot="photon">
+    <img src="../assets/platforms/photon-hero.jpg" alt="3D render of Photon on a lawn" width="1600" height="900">
+    <figcaption class="hero-cap"><h1>Photon</h1><p>A mast to see further, a roof to charge from the sun.</p></figcaption>
+    <button class="spin" id="spin" type="button">Spin it in 3D ↻</button>
+  </figure>
+  <section class="pf">
+    <div class="wrap">
+      <nav class="pf-nav" aria-label="Platforms"><a href="ion.html">Ion</a><a href="quark.html">Quark</a><a href="photon.html" aria-current=page>Photon</a><a href="vector.html">Vector</a><a href="graviton.html">Graviton</a><a href="tachyon.html">Tachyon</a></nav>
+      <div class="r-top" style="margin-top:24px">
+        
+    <article class="bc" id="photon" style="--a:#e0a400">
+      <a class="bc-art" href="photon.html" aria-label="Photon: full specs">
+        <span class="bc-gen">GEN 2</span>
+        <span class="bc-mass">20<small>kg</small></span>
+        <img src="../assets/platforms/photon-card.png" alt="3D render of Photon" loading="lazy" width="800" height="620">
+      </a>
+      <div class="bc-body">
+        <div class="bc-head"><h3><a href="photon.html">Photon</a></h3><span class="bc-role">Sentinel</span></div>
+        <p class="bc-tag">A mast to see further, a roof to charge from the sun.</p>
+        <div class="bc-chips"><span class="chip">Concept · simulated</span><span class="chip">Two-wheel differential, 1 caster</span></div>
+        <ul class="bc-stats"><li title="Width of grass cut in one pass."><span class="bc-k">Cut</span><span class="bc-bar"><i style="width:36%"></i></span><span class="bc-v">36 cm</span></li><li title="Fastest it drives (mowing runs slower)."><span class="bc-k">Top speed</span><span class="bc-bar"><i style="width:36%"></i></span><span class="bc-v">0.50 m/s</span></li><li title="Cut width × top speed: an upper bound before turns and overlap, not a real mowing rate."><span class="bc-k">Peak rate</span><span class="bc-bar"><i style="width:30%"></i></span><span class="bc-v">648 m²/h</span></li><li title="Design estimate of lawn mowed per charge."><span class="bc-k">Range</span><span class="bc-bar"><i style="width:28%"></i></span><span class="bc-v">500 m²</span></li><li title="Design estimate of the steepest slope it can mow."><span class="bc-k">Climb</span><span class="bc-bar"><i style="width:14%"></i></span><span class="bc-v">12°</span></li><li title="Diameter of the circle its body sweeps turning on the spot. Smaller is better."><span class="bc-k">Agility</span><span class="bc-bar"><i style="width:76%"></i></span><span class="bc-v">115 cm turn</span></li><li title="How far ahead of the nose a 4 cm object can hide under the 3D lidar&#x27;s lowest beam. Smaller is better."><span class="bc-k">Sight</span><span class="bc-bar"><i style="width:96%"></i></span><span class="bc-v">43 cm blind</span></li><li title="Middle of the parts-list estimate, US dollars."><span class="bc-k">Cost</span><span class="bc-bar"><i style="width:70%"></i></span><span class="bc-v">≈ $2.4k</span></li></ul>
+        <p class="bc-sp"><b>Special</b> Sees over long grass from 1 m up; its solar roof tops up the battery between missions.</p>
+        <p class="bc-wk"><b>Weakness</b> Tall: low branches and wind. Its mast lidar has a 43 cm blind zone close in.</p>
+        <div class="bc-foot"><span class="smoke smoke-pass" title="smoke-4-photon: reachable coverage 99.3%, turn calibration 1.00">✔ Smoke test passed · 99.3%</span><a href="photon.html">Full specs →</a></div>
+      </div>
+    </article>
+        <div>
+          <p class="eyebrow">Gen 2 · Sentinel · Concept. Simulated.</p>
+          <p class="lede" style="margin-top:6px">Ion&#x27;s body with a 1.1 m sensor mast and a 30 W solar roof. Up high, the lidar and camera see over long grass and low hedges, and the GNSS antenna has a clearer sky. The trade-off is a bigger blind zone close in: the lidar is tilted 30° down to keep it small. The roof tops up the battery between missions, so it can live away from a dock.</p>
+          <p class="note">Photon is a concept: simulated, not built. Parts and prices are estimates, in US dollars (Nov 2026). Drawings are generated from the profile the simulator uses.</p>
+          <div class="table-scroll"><table class="pf-specs"><tbody><tr><th scope="row">Body (L × W × H)</th><td>61 × 60 × 115 cm</td></tr><tr><th scope="row">Mass</th><td>≈ 20 kg</td></tr><tr><th scope="row">Drive</th><td>Two-wheel differential, 1 caster, 24 cm wheels, up to 0.5 m/s</td></tr><tr><th scope="row">Blades</th><td>36 cm → 36 cm cut</td></tr><tr><th scope="row">Battery</th><td>7S 6 Ah ≈ 151 Wh</td></tr><tr><th scope="row">Stripe spacing</th><td>32.4 cm (10% overlap)</td></tr><tr><th scope="row">Edge lap</th><td>35 cm from the edge; uncut band ≈ 17 cm for the trimmer</td></tr><tr><th scope="row">Turning in place sweeps</th><td>a 115 cm circle</td></tr><tr><th scope="row">3D lidar blind zone</th><td>43 cm ahead of the nose</td></tr><tr><th scope="row">Margin at raised beds</th><td>45 cm</td></tr><tr><th scope="row">Best for</th><td>Lawns with long grass or low hedges; spots without a powered dock.</td></tr><tr><th scope="row">Slopes</th><td>up to ≈ 12°</td></tr></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pf">
+    <div class="wrap">
+      <h2>Drawings</h2>
+      <div class="pf-legend"><span>◆ 3D lidar</span><span>○ RTK GNSS antenna</span><span>+ turning centre</span><span>- - - blades</span></div>
+      <div class="pf-figs" style="margin-top:12px">
+        <figure><svg viewBox="0 0 297.3 337.3" role="img" aria-label="Top view of Photon" class="pf-svg"><circle cx="148.7" cy="148.7" r="109.2" class="pf-sweep"/><rect x="125.9" y="91.7" width="115.9" height="114.0" class="pf-body" rx="6"/><rect x="125.9" y="114.5" width="115.9" height="68.4" class="pf-swath"/><circle cx="184.8" cy="148.7" r="34.2" class="pf-blade"/><rect x="125.9" y="95.5" width="45.6" height="11.4" class="pf-wheel" rx="3"/><rect x="125.9" y="190.5" width="45.6" height="11.4" class="pf-wheel" rx="3"/><circle cx="220.9" cy="148.7" r="9.5" class="pf-wheel"/><rect x="189.2" y="141.7" width="14" height="14" class="pf-sensor" transform="rotate(45 196.2 148.7)"/><circle cx="196.2" cy="148.7" r="6" class="pf-gnss"/><path d="M140.7 148.7h16M148.7 140.7v16" class="pf-centre"/><path d="M249.8 148.7l12 0m-6 -5l6 5l-6 5" class="pf-centre"/><path d="M125.9 301.3v12M125.9 307.3H241.8M241.8 301.3v12" class="pf-dim"/><text x="183.8" y="331.3" class="pf-label" text-anchor="middle">61 cm long × 60 cm wide</text></svg><figcaption>From above, nose to the right. Dashed blue: the circle the body sweeps turning in place round the + (its turning centre). Green band: the cut.</figcaption></figure>
+        <figure><svg viewBox="0 0 402.0 313.3" role="img" aria-label="Side view of Photon" class="pf-svg"><path d="M15.0 271.3H387.0" class="pf-ground"/><rect x="104.1" y="214.3" width="114.0" height="38.0" class="pf-body" rx="6"/><path d="M172.5 214.3V52.8" class="pf-mast"/><circle cx="125.0" cy="248.5" r="22.8" class="pf-wheel"/><circle cx="197.2" cy="261.8" r="9.5" class="pf-wheel"/><path d="M126.9 259.9H195.3" class="pf-bladeline"/><path d="M172.5 81.3L300.2 263.7" class="pf-beam"/><path d="M218.1 275.3v12M218.1 281.3H300.2M300.2 275.3v12" class="pf-dim"/><text x="259.2" y="305.3" class="pf-label" text-anchor="middle">blind 43 cm</text><rect x="165.5" y="74.3" width="14" height="14" class="pf-sensor" transform="rotate(45 172.5 81.3)"/><circle cx="172.5" cy="52.8" r="6" class="pf-gnss"/><path d="M381.0 271.3V52.8" class="pf-dim"/><text x="373.0" y="68.8" class="pf-label" text-anchor="end">115 cm tall</text></svg><figcaption>From the side. Dotted blue: the 3D lidar's lowest beam; anything 4 cm tall closer than that is unseen, so the stop field never shrinks below it.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section class="pf">
+    <div class="wrap">
+      <h2>Parts list</h2>
+      <div class="table-scroll"><table class="bom"><thead><tr><th>Part</th><th>What it does</th><th class="num">Price</th><th>Source</th></tr></thead><tbody><tr><td>Everything in Ion</td><td>The body, board, brain and sensors</td><td class="num">≈ $2,150–2,300</td><td>Ion&#x27;s list</td></tr><tr><td>Mast (carbon or aluminium tube) + mounts</td><td>Lifts the lidar, camera and antenna</td><td class="num">≈ $60</td><td>estimate</td></tr><tr><td>30 W solar panel + MPPT charge controller</td><td>Charges between missions</td><td class="num">≈ $90</td><td>estimate</td></tr></tbody><tfoot><tr><th colspan="2">Total</th><td class="num"><b>≈ $2,300–2,450</b></td><td></td></tr></tfoot></table></div>
+      <h2 style="margin-top:32px">Build plan</h2>
+      <ol class="pf-steps"><li><b>Build Ion</b><span>Every Ion step first.</span><span class="pf-test">Test: Ion&#x27;s checks pass</span></li><li><b>Mast</b><span>Mast and mounts; re-run the lidar&#x27;s mount calibration.</span><span class="pf-test">Test: Lidar pose within 1 cm / 0.5° of the profile</span></li><li><b>Solar</b><span>Panel and MPPT into the pack&#x27;s charge input.</span><span class="pf-test">Test: Charges at ≥ 15 W in full sun</span></li><li><b>Stability</b><span>Tilt test with the mast up.</span><span class="pf-test">Test: Doesn&#x27;t tip at 25° side slope</span></li></ol>
+      <div class="pager"><a href="quark.html">← Quark</a><a href="../platforms.html">All six</a><a href="vector.html">Vector →</a></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  const btn = document.getElementById("spin");
+  if (!btn) return;
+  function load(src) { return new Promise(function (ok, no) { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); }); }
+  btn.addEventListener("click", function () {
+    btn.textContent = "Loading 3D…"; btn.disabled = true;
+    load("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
+      .then(function () { return load("https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"); })
+      .then(function () { return Promise.all([load("../js/mower3d.js"), load("../js/platform3d.js"), load("../js/platforms-data.js")]); })
+      .then(start).catch(function () { btn.textContent = "3D failed to load"; });
+  });
+  function start() {
+    const fig = document.querySelector(".hero-r"), img = fig.querySelector("img");
+    const W = img.clientWidth, H = img.clientHeight;
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+    renderer.setSize(W, H);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.9;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    const d = window.FAUERBOT_PLATFORMS[fig.dataset.robot];
+    const robot = FauerbotPlatforms.buildPlatform(THREE, d);
+    const box = new THREE.Box3().setFromObject(robot), c = box.getCenter(new THREE.Vector3());
+    robot.position.x -= c.x;
+    const scene = FauerbotPlatforms.buildStage(THREE, renderer, "lawn", 1.5);
+    scene.add(robot);
+    const camera = new THREE.PerspectiveCamera(30, W / H, 0.01, 100);
+    const sph = FauerbotPlatforms.frame(THREE, camera, robot, [1.1, 0.45, -0.85], 0.7);
+    const ctl = new THREE.OrbitControls(camera, renderer.domElement);
+    ctl.target.copy(sph.center); ctl.enableDamping = true; ctl.autoRotate = true; ctl.autoRotateSpeed = 1.2;
+    ctl.maxPolarAngle = Math.PI / 2 - 0.05; ctl.minDistance = sph.radius * 1.2; ctl.maxDistance = sph.radius * 8;
+    ctl.update();
+    img.replaceWith(renderer.domElement);
+    btn.remove();
+    window.addEventListener("resize", function () {
+      const w = fig.clientWidth, h = Math.round(w * 9 / 16);
+      renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+    });
+    (function loop() { ctl.update(); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+  }
+})();
+</script>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="wordmark wordmark-small" href="../index.html">fauerbot<span class="wordmark-dot" aria-hidden="true"></span></a>
+    <span>Generated from <code>src/fauerbot_robot/robots/*.yaml</code> by <code>scripts/platforms_page.py</code>.</span>
+  </div>
+</footer>
+</body>
+</html>
