@@ -1112,6 +1112,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-end-of-line-test-and-the-robot-that-kept-driving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The end-of-line test, and the robot that kept driving
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#two-buttons-faster-turns-and-a-simulator-that-stopped-telling-everyone-the-time" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1210,17 +1221,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#experiments-2-and-3-crash-a-node-kill-the-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experiments #2 and #3: Crash a node, kill the database
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1235,6 +1235,59 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-09 19:30:00+00:00">November 9, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../category/experiments.html" class="md-meta__link">Experiments</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              6 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="the-end-of-line-test-and-the-robot-that-kept-driving"><a class="toclink" href="../../2026/11/09/end-of-line.html">The end-of-line test, and the robot that kept driving</a></h2>
+<p>A factory doesn't ship a product because each part passed its own test. At the end of the line, one last test
+checks the assembled thing: every sensor, every motor, every way it can stop. Our robot now has one: a single
+script, <code>make eol-run</code>, that drives the robot through 33 checks and prints PASS or FAIL. It found two real
+problems on its first two runs, in a simulator we thought we knew well.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2026/11/09/end-of-line.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1703,56 +1756,6 @@ researched and decided, and the one market fact that changed the plan.</p>
     
       <nav class="md-post__action">
         <a href="../../2026/11/08/a-robot-that-lies-about-where-it-is.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-08 18:45:00+00:00">November 8, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/experiments.html" class="md-meta__link">Experiments</a>, 
-              <a href="../../category/telemetry.html" class="md-meta__link">Telemetry</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              3 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="experiments-2-and-3-crash-a-node-kill-the-database"><a class="toclink" href="../../2026/11/08/chaos-experiments.html">Experiments #2 and #3: Crash a node, kill the database</a></h2>
-<p>Closing out Phase 1 meant answering two uncomfortable questions: <strong>does a crash show up anywhere except a scrolling terminal?</strong> And <strong>what happens to telemetry when Elasticsearch dies?</strong> We broke things on purpose to find out, and the breakage found three bugs we didn't plan for.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2026/11/08/chaos-experiments.html">
           Continue reading
         </a>
       </nav>
