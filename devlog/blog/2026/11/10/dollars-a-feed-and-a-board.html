@@ -1284,48 +1284,30 @@ container that doesn't have the repo's history.</p>
 <p>The board sits between the Pi and the mower: it drives the three motors, reads the lift, tilt and stop sensors,
 charges the battery, and holds the hardware blade interlock. Our software talks to it through one ROS 2 node, so
 whichever board we use, nothing above that node changes.</p>
-<p>OpenMower has two hardware generations. The newer one is a carrier board with two plug-in modules: the
-microcontroller and the motor controllers. The carrier's design is published under CC BY 4.0, but the two modules
-are not, and they're sold by one community member on the project's Discord. The older generation is a single board,
-sold complete by a normal web shop for about $340.</p>
-<p>That gave four options:</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Avoids Discord?</th>
-<th>Effort</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A. The current kit via Discord</td>
-<td>No</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>B. The older kit from a web shop</td>
-<td>Yes</td>
-<td>Low</td>
-</tr>
-<tr>
-<td>C. Order the published carrier ourselves</td>
-<td><strong>No</strong>: the modules still come from the Discord seller</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>D. Our own board, with parts anyone can buy</td>
-<td>Yes</td>
-<td>High</td>
-</tr>
-</tbody>
-</table>
-<p>C looks like the way round Discord, but it isn't, so we dropped it.</p>
-<p>The plan is to <strong>start with B and then build D</strong>. A working kit on the bench teaches us the mower's wiring and its
-real motors, and gives our driver node a known-good board to be tested against. Then we design our own, with the kit
-next to it. The published CC BY carrier is the reference for everything the mower plugs into, and we can reuse it
-with credit, even in a board we might one day sell. A is the fallback if the older kit doesn't fit the mower we find.
-That would be one Discord purchase, once.</p>
+<p>OpenMower has two hardware generations:</p>
+<ul>
+<li><strong>v1</strong> is a single board. A web shop sells it complete for about $340.</li>
+<li><strong>v2</strong>, the current one, is a carrier board for each mower model with two plug-in modules: the microcontroller and
+  the motor controllers. The project's own seller sells the kit, through the OpenMower community.</li>
+</ul>
+<p>Either is a good place to start. We'd take v1 from the shop if two things hold:</p>
+<ul>
+<li><strong>It's in stock.</strong></li>
+<li><strong>It isn't a dead end.</strong> It isn't: the OpenMower project still maintains it (its September 2026 release fixed a v1
+  board setting). For us it matters even less, because our software talks to the board through our own node. Moving
+  to v2 or to our own board later changes that node and nothing else.</li>
+</ul>
+<p>One thing to check before buying: that the kit fits the revision of the used mower we find. If v1 is out of stock or
+doesn't fit, we buy v2.</p>
+<p>Then comes the longer-term plan: <strong>design and build our own board.</strong> The kit on the bench teaches us the mower's
+wiring and its real motors, and gives our driver node a known-good board to test against. Then we design ours next to
+it:</p>
+<ul>
+<li><strong>The reference:</strong> OpenMower publishes its YardForce carrier under CC BY 4.0, so its schematic is the reference for
+  everything the mower plugs into. We can reuse it with credit, even in a board we might one day sell.</li>
+<li><strong>What ours adds:</strong> the hardware blade interlock and a separate safety microcontroller.</li>
+<li><strong>Parts:</strong> ones anyone can buy.</li>
+</ul>
 <p>The full comparison, with licences, is in
 <a href="https://github.com/chrisfauerbach/fauerbot1/blob/main/hardware/controller-options.md"><code>hardware/controller-options.md</code></a>.
 None of this is urgent: the next hardware stage is a push-cart with no motors at all.</p>
