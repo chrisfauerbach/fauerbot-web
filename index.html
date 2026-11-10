@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Fauerbot devlog" href="devlog/feed_rss_created.xml">
 </head>
 <body>
 
@@ -68,7 +69,7 @@
           </div>
         </div>
         <div class="stat">
-          <p class="stat-big"><span data-devlog-count>21</span> posts</p>
+          <p class="stat-big"><span data-devlog-count>23</span> posts</p>
           <p class="stat-label">in the devlog, mistakes included</p>
         </div>
       </div>
@@ -143,7 +144,7 @@
             <h3>Sensors on a garden cart</h3>
             <p>The robot's brain and centimetre-accurate GPS, pushed around a real lawn by hand. It maps the edges. No motors, no blade.</p>
           </div>
-          <div class="goal-side"><span class="goal-cost">≈ $450–700</span><span class="chip chip-next">Next</span></div>
+          <div class="goal-side"><span class="goal-cost">≈ $500–700</span><span class="chip chip-next">Next</span></div>
         </li>
         <li class="goal">
           <span class="goal-n">3</span>
@@ -151,7 +152,7 @@
             <h3>A real robot, blade off</h3>
             <p>A second-hand robot mower gets a new brain: an open-source controller board and our software. It drives the lawn and docks itself.</p>
           </div>
-          <div class="goal-side"><span class="goal-cost">≈ $650–700</span><span class="chip">Planned</span></div>
+          <div class="goal-side"><span class="goal-cost">≈ $600–700</span><span class="chip">Planned</span></div>
         </li>
         <li class="goal">
           <span class="goal-n">4</span>
@@ -185,14 +186,14 @@
     <div class="wrap">
       <p class="eyebrow">Funds needed · prices checked 8–10 Nov 2026</p>
       <h2>Where the money would go</h2>
-      <p class="section-lede">These are real prices with sources. Nothing is padded, and the founder is paying for all of it for now.</p>
+      <p class="section-lede">These are real prices with sources. Nothing is padded, and the founder is paying for all of it for now. Everything is in US dollars, rounded; parts priced in euros are converted at an approximate $1.12 per € (Nov 2026).</p>
       <div class="table-scroll">
         <table class="bom bom-stack">
           <thead><tr><th scope="col">What</th><th scope="col">For</th><th scope="col" class="num">Cost</th></tr></thead>
           <tbody>
-            <tr><td>Raspberry Pi 5, centimetre GPS (RTK), motion sensor, storage</td><td>Goal 2: the robot's brain and senses</td><td class="num">$450–700</td></tr>
-            <tr><td>A used YardForce Classic 500 robot mower</td><td>Goal 3: a body, wheels, blade guard, battery and dock that already work (<a href="https://www.ebay.de/p/8047112204" rel="noopener">used listings</a>)</td><td class="num">≈ €300</td></tr>
-            <tr><td>OpenMower controller board kit</td><td>Goal 3: the open-source board that drives the motors (<a href="https://shop.devops.care/10-openmower" rel="noopener">shop</a>)</td><td class="num">€225–300</td></tr>
+            <tr><td>Raspberry Pi 5, centimetre GPS (RTK), motion sensor, storage</td><td>Goal 2: the robot's brain and senses</td><td class="num">≈ $500–700</td></tr>
+            <tr><td>A used YardForce Classic 500 robot mower</td><td>Goal 3: a body, wheels, blade guard, battery and dock that already work (<a href="https://www.ebay.de/p/8047112204" rel="noopener">used listings</a>)</td><td class="num">≈ $340</td></tr>
+            <tr><td>OpenMower controller board kit</td><td>Goal 3: the open-source board that drives the motors (<a href="https://shop.devops.care/10-openmower" rel="noopener">shop</a>)</td><td class="num">≈ $250–340</td></tr>
             <tr><td>Livox Mid-360 3D lidar</td><td>Goal 4: seeing obstacles (<a href="https://dronexl.co/2026/09/21/livox-mid-360l-lidar-half-point-rate-robots/" rel="noopener">list price</a>)</td><td class="num">$979</td></tr>
             <tr><td>Safety electronics: stop button, sensors, a small safety computer</td><td>Goal 5: the blade interlock (estimate)</td><td class="num">≈ $100</td></tr>
           </tbody>
@@ -249,6 +250,7 @@
         <details><summary>Can I buy one?</summary><p>No. Nothing is for sale. Today Fauerbot is a simulation, a set of plans and a devlog. The goals above are how it becomes a real robot.</p></details>
         <details><summary>Do you want money?</summary><p>Not yet. The founder is paying for goals 2 to 5. If we ever ask, it will be after there's a real robot to show, and we'll say exactly what the money is for, like the table above.</p></details>
         <details><summary>Will it work on my lawn?</summary><p>It's being designed for lawns with a clear view of the sky, because it finds its way with centimetre-accurate GPS. Narrow side passages under trees are the hardest case, and we'll test them on a real lawn in goal 2.</p></details>
+        <details><summary>Are you building your own electronics?</summary><p>Eventually. The first real robot uses a ready-made board from <a href="https://openmower.de/" rel="noopener">OpenMower</a>, an open-source project for converting robot mowers, because a board that's known to work is the fastest way to learn the mower's wiring. After that we plan to design our own board. It will have the hardware blade interlock built in and use parts anyone can buy. OpenMower publishes its YardForce board design under a licence that allows reuse, which saves most of the detective work. <a href="https://github.com/chrisfauerbach/fauerbot1/blob/main/hardware/controller-options.md" rel="noopener">The options, compared</a>.</p></details>
         <details><summary>Does it need an app or the internet?</summary><p>No. It runs on its own computer. Two buttons on the robot start, pause, send it home and stop it. A phone app is planned for editing the map, and it will talk to the robot directly.</p></details>
         <details><summary>What about pets and wildlife?</summary><p>It doesn't mow between dusk and dawn, when hedgehogs are about. It stops for things it sees in its path. And it won't mow grass that's grown too long to spot a small animal in: it goes home and tells you instead.</p></details>
         <details><summary>Who's building it?</summary><p>Chris Fauerbach, a Python developer learning robotics, working with Claude as an AI pair-engineer. The devlog shows how.</p></details>
@@ -273,14 +275,24 @@
         <div>
           <p class="eyebrow">Latest from the devlog</p>
           <h2>Follow the build</h2>
-          <p class="section-lede">One post per step, written as we go. Fair warning: they get technical.</p>
+          <p class="section-lede">One post per step, written as we go. Fair warning: they get technical. Follow along with the <a href="devlog/feed_rss_created.xml">RSS feed</a>.</p>
         </div>
-        <a class="btn btn-ghost" href="devlog/blog/index.html"><span>All <span data-devlog-count>21</span> posts</span></a>
+        <a class="btn btn-ghost" href="devlog/blog/index.html"><span>All <span data-devlog-count>23</span> posts</span></a>
       </div>
       <div class="posts">
         <!-- devlog:start -->
         <article class="post">
-          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Meta</p>
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Project notes</p>
+          <h3><a href="devlog/blog/2026/11/10/dollars-a-feed-and-a-board.html">Dollars, a feed, and who makes the board</a></h3>
+          <p>Chris read the new front page and asked three things. Some prices looked like pounds. Could the devlog have an RSS feed? And are we building on the OpenMower board, or designing our own?</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/10/raised-beds.html">Raised beds: a margin, a switch, and a flowerbed mistaken for long grass</a></h3>
+          <p>The sim&#x27;s flowerbed is a 15 cm raised box. To the 3D lidar, its edge is an obstacle like any other, and the safety gate never lets the robot&#x27;s nose get closer than about 0.57 m to an obstacle (the lidar&#x27;s blind range…</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Project notes</p>
           <h3><a href="devlog/blog/2026/11/10/a-front-door.html">The website gets a front door (and a budget)</a></h3>
           <p>Chris&#x27;s feedback on the public site: the styling and tone are right, but it&#x27;s very tech-forward. The first thing a visitor met was a canvas of stripes labelled &quot;RTK FIXED&quot; and &quot;300 rad/s&quot;. Good if you already care, but…</p>
         </article>
@@ -299,16 +311,6 @@
           <h3><a href="devlog/blog/2026/11/09/the-night-rule.html">Seven decisions, and the cheapest hedgehog protection there is</a></h3>
           <p>We reviewed the Phase 5 (perception) plan together and made all seven decisions in it. Then we built the first piece, which needs no camera and no AI: the robot doesn&#x27;t mow in the dark.</p>
         </article>
-        <article class="post">
-          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Infrastructure</p>
-          <h3><a href="devlog/blog/2026/11/09/bookkeeping-and-the-phase-5-plan.html">Bookkeeping, a diagram that refused to lie, and the plan for Phase 5</a></h3>
-          <p>Four smaller jobs: the ROS graph documentation, the GNSS static test for gate 1, build records in Elasticsearch, and a written plan for Phase 5 (perception), which is now up for review before any of it is built.</p>
-        </article>
-        <article class="post">
-          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Simulation</p>
-          <h3><a href="devlog/blog/2026/11/09/end-of-line.html">The end-of-line test, and the robot that kept driving</a></h3>
-          <p>A factory doesn&#x27;t ship a product because each part passed its own test. At the end of the line, one last test checks the assembled thing: every sensor, every motor, every way it can stop. Our robot now has one: a single…</p>
-        </article>
         <!-- devlog:end -->
       </div>
     </div>
@@ -321,6 +323,7 @@
     <span class="wordmark wordmark-small">fauerbot<span class="wordmark-dot" aria-hidden="true"></span></span>
     <span>Goal 1 of 5 done · simulation only · nothing for sale</span>
     <span>Built in the open by Chris Fauerbach and Claude</span>
+    <a href="devlog/feed_rss_created.xml">RSS feed</a>
   </div>
 </footer>
 

@@ -24,6 +24,9 @@
         
       
       
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
+      
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
@@ -544,6 +547,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-hedgehog-that-vanished-a-safety-regression-i-introduced-and-how-the-course-caught-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hedgehog that vanished: a safety regression I introduced, and how the course caught it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mowing patterns: five runs to mow a lawn without touching the flowerbed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-hedgehog-test-why-the-mower-needs-to-look-down" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -625,28 +650,6 @@
     <span class="md-ellipsis">
       
         Experiment #1: Does hysteresis stop flapping?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#day-0-the-session-that-vanished" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Day 0: The session that vanished
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#phase-1-telemetry-before-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phase 1: Telemetry before code
       
     </span>
   </a>
@@ -803,14 +806,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../category/meta.html" class="md-nav__link">
+      <a href="../../../category/project-notes.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Meta
+    Project notes
   
 
     
@@ -1268,6 +1271,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-hedgehog-that-vanished-a-safety-regression-i-introduced-and-how-the-course-caught-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hedgehog that vanished: a safety regression I introduced, and how the course caught it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mowing patterns: five runs to mow a lawn without touching the flowerbed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-hedgehog-test-why-the-mower-needs-to-look-down" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1355,28 +1380,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#day-0-the-session-that-vanished" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Day 0: The session that vanished
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#phase-1-telemetry-before-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phase 1: Telemetry before code
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1391,6 +1394,114 @@
       <header class="md-typeset">
         <h1 id="2026">2026</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-09 03:00:00+00:00">November 9, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../../category/simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../../category/experiments.html" class="md-meta__link">Experiments</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="the-hedgehog-that-vanished-a-safety-regression-i-introduced-and-how-the-course-caught-it"><a class="toclink" href="../../../2026/11/09/the-hedgehog-that-vanished.html">The hedgehog that vanished: a safety regression I introduced, and how the course caught it</a></h2>
+<p>Two nights ago the <a href="../../../2026/11/08/the-hedgehog-test.html">hedgehog test</a> showed the 3D lidar stopping for every obstacle
+on the course. Tonight, after an innocent-looking improvement to the safety gate, it drove straight into the
+hedgehog. This post is about why, and about a second mistake of mine that made the investigation messier than it
+needed to be.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../../2026/11/09/the-hedgehog-that-vanished.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-09 02:00:00+00:00">November 9, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../../category/simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../../category/experiments.html" class="md-meta__link">Experiments</a>, 
+              <a href="../../../category/ros.html" class="md-meta__link">ROS</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed"><a class="toclink" href="../../../2026/11/09/mowing-patterns.html">Mowing patterns: five runs to mow a lawn without touching the flowerbed</a></h2>
+<p>Phase 4 is the one Chris was waiting for: the robot plans a mowing pattern for a lawn and mows it. A planner turns the
+lawn (a GeoJSON polygon with keep-outs) into a path, a follower drives it on the RTK pose, and a report says, with
+ground truth, what got cut and whether anything went wrong. The first run finished the lawn. It also drove into the
+flowerbed 24 times. This post is about the four fixes between that run and a clean one, and about the tool that made
+the last fixes take seconds instead of minutes.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../../2026/11/09/mowing-patterns.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1464,7 +1575,7 @@ question: <strong>what does each lidar fail to see?</strong></p>
           <li class="md-meta__item">
             in
             
-              <a href="../../../category/meta.html" class="md-meta__link">Meta</a>, 
+              <a href="../../../category/project-notes.html" class="md-meta__link">Project notes</a>, 
               <a href="../../../category/infrastructure.html" class="md-meta__link">Infrastructure</a></li>
         
         
@@ -1569,7 +1680,7 @@ there meant catching a sensor configured in the wrong units, a ground truth that
           <li class="md-meta__item">
             in
             
-              <a href="../../../category/meta.html" class="md-meta__link">Meta</a>, 
+              <a href="../../../category/project-notes.html" class="md-meta__link">Project notes</a>, 
               <a href="../../../category/infrastructure.html" class="md-meta__link">Infrastructure</a></li>
         
         
@@ -1803,105 +1914,6 @@ researched and decided, and the one market fact that changed the plan.</p>
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-08 17:40:00+00:00">November 8, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../../category/meta.html" class="md-meta__link">Meta</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="day-0-the-session-that-vanished"><a class="toclink" href="../../../2026/11/08/the-session-that-vanished.html">Day 0: The session that vanished</a></h2>
-<p>The project started with a disappearance. Chris had a Claude Code <strong>Remote Control</strong> session open on the Windows/WSL laptop, driven from a phone. Then it was gone.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../../2026/11/08/the-session-that-vanished.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-08 17:20:00+00:00">November 8, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../../category/telemetry.html" class="md-meta__link">Telemetry</a>, 
-              <a href="../../../category/ros.html" class="md-meta__link">ROS</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              3 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="phase-1-telemetry-before-code"><a class="toclink" href="../../../2026/11/08/phase-1-telemetry-first.html">Phase 1: Telemetry before code</a></h2>
-<p>Chris's rule for this phase: <em>"Before we build something in code, maybe it should have new telemetry?"</em> So before the first ROS node existed, we wrote down the questions we'd ask of its data.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../../2026/11/08/phase-1-telemetry-first.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
       
         
           
@@ -1932,6 +1944,19 @@ researched and decided, and the one market fact that changed the plan.</p>
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://chrisfauerbach.github.io/fauerbot-web/devlog/feed_rss_created.xml" target="_blank" rel="noopener" title="RSS feed of the devlog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93z"/></svg>
     </a>
   
 </div>
