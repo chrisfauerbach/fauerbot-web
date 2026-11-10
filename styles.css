@@ -262,6 +262,11 @@ main > section > .wrap { display: grid; gap: 20px; }
 .diagram-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .diagram-tabs button:focus-visible { outline: 3px solid var(--truth); outline-offset: 2px; }
 .diagram-panels figure { margin: 0; display: grid; gap: 10px; }
+/* `display: grid` above beats the browser's own [hidden] rule, so every panel showed and the tabs did nothing */
+.diagram-panels figure[hidden] { display: none; }
+.diagram-panels .sheet a { display: block; }
+.phone-only { display: none; }
+@media (max-width: 760px) { .phone-only { display: block; } }
 .diagram-panels .sheet { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); background: #f7f9f6; }
 .diagram-panels .sheet img { min-width: 720px; width: 100%; height: auto; }
 .diagram-panels figcaption { font-size: var(--step--1); color: var(--ink-2); }
