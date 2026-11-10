@@ -280,3 +280,94 @@ nav a.nav-key:first-child { color: var(--hivis); }
 .post h3 a:hover { text-decoration: underline; text-decoration-color: var(--hivis); }
 .post p { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
 .post .post-meta { font: 500 var(--step--1)/1.4 var(--font-mono); letter-spacing: 0.02em; color: var(--ink-2); }
+
+/* ---------- front page: the marketing layer (index.html). The tech detail lives in how-it-works.html ---------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+nav a.nav-tech { color: var(--hivis); }
+.pitch { padding-block: clamp(40px, 6vw, 88px) clamp(32px, 4vw, 56px); }
+.pitch-grid { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
+@media (min-width: 900px) { .pitch-grid { grid-template-columns: 1fr 1.15fr; } }
+.pitch-copy { display: grid; gap: 20px; min-width: 0; }
+.pitch-hero { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.pitch-hero img { border-radius: calc(var(--radius) * 2); border: 1px solid var(--line); width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.pitch-hero figcaption { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* the "campaign" panel: what a crowdfunding page shows at the top, kept honest */
+.campaign-band { padding-block: 0 clamp(40px, 5vw, 72px) !important; }
+.campaign { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 2px solid var(--ink); border-radius: var(--radius); background: var(--card); }
+@media (min-width: 900px) { .campaign { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.stat { display: grid; gap: 4px; align-content: start; padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; }
+.stat-big { font: 800 var(--step-2)/1.1 var(--font-display); letter-spacing: -0.02em; }
+.stat:first-child .stat-big { color: var(--hivis); }
+.stat-label { color: var(--ink-2); font-size: var(--step--1); }
+.meter { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 8px; }
+.meter span { height: 8px; border-radius: 2px; background: var(--line); }
+.meter .is-done { background: var(--done); }
+.meter .is-next { background: repeating-linear-gradient(-45deg, var(--hivis) 0 4px, transparent 4px 8px); }
+
+.benefits { display: grid; gap: 16px; margin-top: 12px; }
+@media (min-width: 720px) { .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1060px) { .benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); } .benefits-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.benefit { display: grid; gap: 8px; align-content: start; padding: 22px; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--done); border-radius: var(--radius); min-width: 0; }
+.benefit p { color: var(--ink-2); font-size: 0.98rem; }
+
+.demo { display: grid; gap: 24px; margin-top: 28px; align-items: center; }
+@media (min-width: 900px) { .demo { grid-template-columns: 1fr 1fr; } }
+.demo-copy { display: grid; gap: 14px; min-width: 0; }
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ticks li { position: relative; padding-left: 28px; }
+.ticks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--done); font-weight: 700; }
+.ticks b { font-family: var(--font-mono); font-weight: 500; color: var(--truth); }
+
+/* goals: like crowdfunding stretch goals, but each one is a tested step */
+.goals { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+.goal { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 18px 20px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.goal-n { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 2px solid var(--line); font: 700 1.05rem/1 var(--font-display); color: var(--ink-2); }
+.goal.is-done .goal-n { background: var(--done); border-color: var(--done); color: var(--card); }
+.goal.is-next { border: 2px solid var(--hivis); }
+.goal.is-next .goal-n { border-color: var(--hivis); color: var(--hivis); }
+.goal.is-stretch { border-style: dashed; }
+.goal-body { display: grid; gap: 4px; min-width: 0; }
+.goal-body p { color: var(--ink-2); font-size: 0.98rem; max-width: 62ch; }
+.goal-side { display: grid; gap: 8px; justify-items: end; }
+.goal-cost { font: 500 var(--step-0)/1.2 var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chip-next { border-color: var(--hivis); color: var(--hivis); }
+@media (max-width: 560px) {
+  .goal { grid-template-columns: 2.75rem minmax(0, 1fr); }
+  .goal-side { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: start; align-items: center; }
+}
+
+.bom a { color: var(--ink-2); }
+.callout { display: grid; gap: 8px; padding: 20px 22px; border-left: 4px solid var(--truth); background: var(--band); border-radius: var(--radius); max-width: 62rem; }
+.callout p { color: var(--ink-2); }
+
+.risks { margin: 12px 0 0; display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.risks > div { display: grid; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 760px) { .risks > div { grid-template-columns: 18rem minmax(0, 1fr); } }
+.risks dt { font: 700 var(--step-0)/1.35 var(--font-display); }
+.risks dd { margin: 0; color: var(--ink-2); max-width: 62ch; }
+
+.faq { display: grid; gap: 0; margin-top: 8px; border-top: 2px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; padding: 16px 0; font: 700 var(--step-0)/1.35 var(--font-display); }
+.faq summary::marker { color: var(--hivis); }
+.faq summary:focus-visible { outline: 3px solid var(--truth); outline-offset: 2px; }
+.faq details p { padding: 0 0 18px; color: var(--ink-2); max-width: 66ch; }
+
+.hood { background: var(--ink); color: var(--bg); }
+.hood .section-lede, .hood .eyebrow { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); }
+.hood-inner { display: flex !important; flex-wrap: wrap; gap: 24px; align-items: end; justify-content: space-between; }
+.hood-inner > div { display: grid; gap: 14px; max-width: 46rem; }
+
+/* On a phone the budget table stacks: what + cost on one line, the reason (with its source link) below.
+   The cost is the point of the table, so it must never scroll out of view. */
+@media (max-width: 600px) {
+  .bom-stack { min-width: 0; }
+  .bom-stack thead { display: none; }
+  .bom-stack tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .bom-stack td { padding: 0; border: 0; }
+  .bom-stack td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; font-size: var(--step--1); margin-top: 2px; }
+  .bom-stack tfoot tr { border-top: 2px solid var(--ink); border-bottom: 0; }
+  .bom-stack tfoot td { border: 0; }
+  .bom-stack tfoot td[colspan] { grid-column: 1; }
+}
