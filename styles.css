@@ -98,7 +98,9 @@ body::before {
 nav { display: flex; gap: 4px 20px; flex-wrap: wrap; font-size: var(--step--1); }
 nav a { text-decoration: none; color: var(--ink-2); }
 nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--hivis); }
-@media (max-width: 640px) { nav { display: none; } }
+/* Phones: keep the page links (Home, Platforms, How it works, Devlog), drop the in-page section links */
+@media (max-width: 640px) { nav a:not(.nav-key) { display: none; } nav { gap: 4px 16px; } }
+nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--hivis); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
 /* ---------- hero ---------- */
 .hero {
@@ -288,7 +290,6 @@ nav a.nav-key:first-child { color: var(--hivis); }
 
 /* ---------- front page: the marketing layer (index.html). The tech detail lives in how-it-works.html ---------- */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-nav a.nav-tech { color: var(--hivis); }
 .pitch { padding-block: clamp(40px, 6vw, 88px) clamp(32px, 4vw, 56px); }
 .pitch-grid { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
 @media (min-width: 900px) { .pitch-grid { grid-template-columns: 1fr 1.15fr; } }
