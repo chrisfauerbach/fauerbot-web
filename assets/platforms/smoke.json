@@ -1,43 +1,42 @@
 {
-  "run": "smoke-9",
+  "run": "smoke-22",
   "date": "2026-11-10",
   "results": {
     "ion": {
       "result": "PASS",
-      "coverage": "99.3%",
+      "coverage": "99.0%",
       "turn": "1.00",
-      "run": "smoke-9-ion"
+      "run": "smoke-22-ion"
     },
     "quark": {
       "result": "PASS",
-      "coverage": "98.7%",
+      "coverage": "98.9%",
       "turn": "1.00",
-      "run": "smoke-9-quark"
+      "run": "smoke-22-quark"
     },
     "vector": {
-      "result": "FAIL",
-      "coverage": "98.7%",
-      "turn": "1.03",
-      "run": "smoke-9-vector",
-      "note": "docks, but strays 18 cm off a stripe end (limit 15); fix in progress"
+      "result": "PASS",
+      "coverage": "99.2%",
+      "turn": "1.01",
+      "run": "smoke-22-vector"
     },
     "graviton": {
       "result": "PASS",
-      "coverage": "99.2%",
+      "coverage": "99.4%",
       "turn": "1.11",
-      "run": "smoke-9-graviton"
+      "run": "smoke-22-graviton"
     },
     "tachyon": {
       "result": "PASS",
-      "coverage": "99.9%",
+      "coverage": "99.6%",
       "turn": "1.00",
-      "run": "smoke-9-tachyon"
+      "run": "smoke-22-tachyon"
     },
     "photon": {
       "result": "PASS",
-      "coverage": "99.2%",
+      "coverage": "98.6%",
       "turn": "1.00",
-      "run": "smoke-9-photon"
+      "run": "smoke-22-photon"
     }
   }
 }
