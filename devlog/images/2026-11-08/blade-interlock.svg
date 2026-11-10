@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" width="1100" height="500" role="img" aria-label="Blade interlock: a 12 V supply passes through normally-closed e-stop, lift, tilt and watchdog contacts and the Pico's blade request in series to the blade controller's enable. The watchdog needs a pulse every 100 ms from the Pico, which needs a heartbeat from ROS.">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14231a"/></marker><marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9500c"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a6fd0"/></marker></defs>
+<rect width="1100" height="500" fill="#f7f9f6"/>
+<rect x="8" y="8" width="1084" height="484" fill="none" stroke="#c9d3c5" stroke-width="1"/>
+<text x="28" y="44" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="20" font-weight="700" fill="#14231a">Blade interlock: a hardware AND</text>
+<text x="28" y="66" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" fill="#5d6b62">Normally-closed contacts in series. Any open contact, a cut wire or a dead MCU removes ENABLE and the blade brakes.</text>
+<rect x="28" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="83.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">+12 V</text>
+<text x="83.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">interlock supply</text>
+<polyline points="138.0,170.0 160.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="160" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="215.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">E-stop</text>
+<text x="215.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">NC</text>
+<polyline points="270.0,170.0 290.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="290" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="345.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Lift left</text>
+<text x="345.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">NC hall</text>
+<polyline points="400.0,170.0 420.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="420" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="475.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Lift right</text>
+<text x="475.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">NC hall</text>
+<polyline points="530.0,170.0 550.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="550" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="605.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Tilt</text>
+<text x="605.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">NC switch &lt; 30°</text>
+<polyline points="660.0,170.0 680.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="680" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#d9500c" stroke-width="1.5"/>
+<text x="735.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Watchdog</text>
+<text x="735.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">one-shot 100 ms</text>
+<polyline points="790.0,170.0 810.0,170.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="810" y="140" width="110" height="60" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="865.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Blade request</text>
+<text x="865.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">Pico GPIO</text>
+<polyline points="920.0,170.0 950.0,170.0" fill="none" stroke="#d9500c" stroke-width="2.4" marker-end="url(#arrow-accent)"/>
+<rect x="950" y="136" width="120" height="68" rx="6" fill="#fff4ee" stroke="#d9500c" stroke-width="2.4"/>
+<text x="1010.0" y="167.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#d9500c" text-anchor="middle">ENABLE</text>
+<text x="1010.0" y="182.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">blade controller</text>
+<rect x="660" y="300" width="150" height="52" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="735.0" y="323.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Pico 2 firmware</text>
+<text x="735.0" y="338.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">toggles every &lt; 50 ms</text>
+<polyline points="735.0,300.0 735.0,200.0" fill="none" stroke="#d9500c" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
+<text x="735.0" y="254.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#d9500c" text-anchor="middle">pulse</text>
+<rect x="430" y="300" width="170" height="52" rx="6" fill="#ffffff" stroke="#14231a" stroke-width="1.5"/>
+<text x="515.0" y="323.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#14231a" text-anchor="middle">Raspberry Pi (ROS)</text>
+<text x="515.0" y="338.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#5d6b62" text-anchor="middle">heartbeat + mow request</text>
+<polyline points="600.0,326.0 660.0,326.0" fill="none" stroke="#14231a" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="630.0" y="320.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#5d6b62" text-anchor="middle">UART</text>
+<polyline points="810.0,326.0 865.0,326.0 865.0,200.0" fill="none" stroke="#2a6fd0" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+<text x="873.0" y="285.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#2a6fd0" text-anchor="start">request</text>
+<text x="28.0" y="395.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="12" font-weight="700" fill="#14231a" text-anchor="start">What opens the chain</text>
+<text x="28.0" y="418.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="500" fill="#14231a" text-anchor="start">wire cut / connector unplugged</text>
+<text x="258.0" y="418.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="400" fill="#5d6b62" text-anchor="start">→ open circuit</text>
+<text x="548.0" y="418.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="500" fill="#14231a" text-anchor="start">robot lifted or tipped</text>
+<text x="778.0" y="418.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="400" fill="#5d6b62" text-anchor="start">→ lift / tilt contact opens</text>
+<text x="28.0" y="438.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="500" fill="#14231a" text-anchor="start">Pico hangs</text>
+<text x="258.0" y="438.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="400" fill="#5d6b62" text-anchor="start">→ pulse stops → one-shot times out</text>
+<text x="548.0" y="438.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="500" fill="#14231a" text-anchor="start">Pi or ROS crashes</text>
+<text x="778.0" y="438.0" font-family="IBM Plex Sans, Segoe UI, system-ui, sans-serif" font-size="11.5" font-weight="400" fill="#5d6b62" text-anchor="start">→ no heartbeat → Pico drops request</text>
+<text x="1072" y="480" font-family="IBM Plex Mono, ui-monospace, Menlo, monospace" font-size="10" fill="#5d6b62" text-anchor="end">FAUERBOT · generated by scripts/make_diagrams.py</text>
+</svg>

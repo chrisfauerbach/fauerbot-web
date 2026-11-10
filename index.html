@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fauerbot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An open, simulation-first robot lawn mower: ROS 2 software you can read, a Gazebo twin you can test against, and a parts list for your own yard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="#top" aria-label="Fauerbot home">fauerbot<span class="wordmark-dot" aria-hidden="true"></span></a>
+    <nav aria-label="Sections">
+      <a class="nav-key" href="devlog/blog/index.html">Devlog</a>
+      <a class="nav-key" href="devlog/manual/index.html">Build manual</a>
+      <a href="#design">Design</a>
+      <a href="#findings">Findings</a>
+      <a href="#mowing">Mowing</a>
+      <a href="#path">Sim to yard</a>
+      <a href="#buy">What to buy</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#safety">Safety</a>
+      <a href="#open">Open source</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Open-source robot mower · Phase 4 of 7</p>
+        <h1>The robot mower you can read.</h1>
+        <p class="lede">Fauerbot is built in simulation first, measured with real telemetry, and documented all the way to a parts list for your own yard. No cloud, no closed boxes. Every bug we find goes in the devlog.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#buy">See the parts list</a>
+          <a class="btn btn-ghost" href="devlog/blog/index.html">Read the devlog</a>
+        </div>
+      </div>
+      <figure class="hero-sim" aria-label="Animated top-down view of the mower cutting stripes across a lawn">
+        <canvas id="lawn" width="640" height="480"></canvas>
+        <figcaption class="readout" aria-live="off">
+          <span><b>RTK</b> <i id="ro-fix">FIXED</i></span>
+          <span><b>blade</b> <i id="ro-blade">300 rad/s</i></span>
+          <span><b>cut</b> <i id="ro-cov">0%</i></span>
+          <span><b>sim t</b> <i id="ro-t">0.0 s</i></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="devlog" class="devlog">
+    <div class="wrap">
+      <div class="devlog-head">
+        <div>
+          <p class="eyebrow">Tech blog</p>
+          <h2>The devlog: every milestone, every bug</h2>
+          <p class="section-lede">One post per milestone, written as we go, mistakes included. Each one has the run IDs, the pass/fail report and the fix, so you can rerun it yourself.</p>
+        </div>
+        <a class="btn btn-ghost" href="devlog/blog/index.html">All <span data-devlog-count>20</span> posts</a>
+      </div>
+      <div class="posts">
+        <!-- devlog:start -->
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/10/the-long-grass-rule.html">The long-grass rule, and three ways to trap a robot in a patch of grass</a></h3>
+          <p>Last night&#x27;s result was uncomfortable: the 3D lidar sees a 10 cm hedgehog in 5 cm grass and loses it in 7 cm grass. Height is all the lidar measures, so the lawn has to stay short enough for an animal to stand out of…</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-10">2026-11-10</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/10/grass-is-not-an-obstacle.html">Grass is not an obstacle (it took nine stops to get there)</a></h3>
+          <p>Until tonight the sim lawn was a flat green plane. Real grass is 5 to 10 cm tall, and our 3D-lidar safety gate stopped for anything 3 cm above the ground. So we grew grass the lidar can see, and the robot never left the…</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/09/the-night-rule.html">Seven decisions, and the cheapest hedgehog protection there is</a></h3>
+          <p>We reviewed the Phase 5 (perception) plan together and made all seven decisions in it. Then we built the first piece, which needs no camera and no AI: the robot doesn&#x27;t mow in the dark.</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Infrastructure</p>
+          <h3><a href="devlog/blog/2026/11/09/bookkeeping-and-the-phase-5-plan.html">Bookkeeping, a diagram that refused to lie, and the plan for Phase 5</a></h3>
+          <p>Four smaller jobs: the ROS graph documentation, the GNSS static test for gate 1, build records in Elasticsearch, and a written plan for Phase 5 (perception), which is now up for review before any of it is built.</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/09/end-of-line.html">The end-of-line test, and the robot that kept driving</a></h3>
+          <p>A factory doesn&#x27;t ship a product because each part passed its own test. At the end of the line, one last test checks the assembled thing: every sensor, every motor, every way it can stop. Our robot now has one: a single…</p>
+        </article>
+        <article class="post">
+          <p class="post-meta"><time datetime="2026-11-09">2026-11-09</time> · Simulation</p>
+          <h3><a href="devlog/blog/2026/11/09/buttons-and-faster-turns.html">Two buttons, faster turns, and a simulator that stopped telling everyone the time</a></h3>
+          <p>Three small changes, tested in one simulator run instead of three: the physical buttons from the controls spec (docs/controls.md) now exist in the sim, the robot turns faster at the end of each stripe, and the simulator…</p>
+        </article>
+        <!-- devlog:end -->
+      </div>
+      <p class="note">Building one? The <a href="devlog/manual/index.html">build manual</a> covers buying the parts, assembly with safety checkpoints, and the acceptance tests.</p>
+    </div>
+  </section>
+
+  <section id="design" class="design">
+    <div class="wrap">
+      <p class="eyebrow">Design concept · M1</p>
+      <h2>Liquid chrome. It floats.</h2>
+      <p class="section-lede">One seamless mirror shell over a dark skirt tucked so far in that the body hovers. A light seam all the way round tells you what it's doing from across the lawn.</p>
+      <div class="viewer-wrap">
+        <figure class="viewer" aria-label="Interactive 3D model of the M1 concept. Drag to rotate.">
+          <canvas id="m1-viewer" width="1200" height="700"></canvas>
+          <img class="viewer-fallback" src="assets/m1-hero.jpg" alt="Render of the M1 concept: a seamless chrome shell with haunches over the rear wheels, a dark skirt and a cyan light seam, on a striped lawn" width="1400" height="875">
+          <div class="viewer-ui">
+            <span class="hint">Drag to rotate</span>
+            <button type="button" id="m1-mode" aria-pressed="false">Night</button>
+          </div>
+        </figure>
+        <ul class="callouts">
+          <li><b>GNSS eye</b><span>Metal blocks satellite signals, so the RTK antenna sits under a dark glass dome at the crown.</span></li>
+          <li><b>Haunches</b><span>Two swells hide 240 mm wheels under a 245 mm shell.</span></li>
+          <li><b>Light seam</b><span>Cyan: positioned and allowed to mow. Amber: blade on. Red: fault.</span></li>
+          <li><b>Stop button</b><span>Red, raised, top-rear. Reachable without putting a hand near the blade.</span></li>
+        </ul>
+      </div>
+      <div class="render-strip">
+        <figure><img src="assets/m1-night.jpg" alt="The M1 at night, its light seam glowing cyan" width="1400" height="875" loading="lazy"><figcaption>Night</figcaption></figure>
+        <figure><img src="assets/m1-rear.jpg" alt="The M1 from the rear three-quarter view, showing the haunches and stop button" width="1400" height="875" loading="lazy"><figcaption>Rear three-quarter</figcaption></figure>
+        <figure><img src="assets/m1-top.jpg" alt="Top view of the M1: reverse-teardrop outline, GNSS eye and red stop button" width="1400" height="875" loading="lazy"><figcaption>Plan view</figcaption></figure>
+      </div>
+      <p class="note">A design concept rendered from the same procedural model the engineering drawings use. Not a product you can buy.</p>
+    </div>
+  </section>
+
+  <section id="findings" class="band">
+    <div class="wrap">
+      <p class="eyebrow">Found in simulation, before it cost money</p>
+      <h2>A robot that lies about where it is</h2>
+      <p class="section-lede">The mower steers by wheel odometry, the way a real one does. Gazebo knows where it really went. On the first drive the two disagreed by more than a metre, and the robot had no idea.</p>
+
+      <div class="findings">
+        <article class="finding">
+          <p class="finding-metric"><span class="from">1.18 m</span><span class="arrow" aria-hidden="true">→</span><span class="to">1.1 cm</span></p>
+          <h3>Wheels skidded in every turn</h3>
+          <p>Odometry counted 90° and the robot really turned about 99°. Cylinder-shaped wheel contacts were unstable in the physics engine. Sphere contacts fixed it.</p>
+        </article>
+        <article class="finding">
+          <p class="finding-metric"><span class="from">6.7°</span><span class="arrow" aria-hidden="true">→</span><span class="to">0°</span></p>
+          <h3>The blade twisted the robot</h3>
+          <p>Spinning the blade from 0 to 300 rad/s in one step pushed back on the body. A 3-second spin-up before driving, as real mowers do, removed it.</p>
+        </article>
+        <article class="finding">
+          <p class="finding-metric"><span class="from">48 cm</span><span class="arrow" aria-hidden="true">→</span><span class="to">1.3 cm</span></p>
+          <h3>Our own metric hid an error</h3>
+          <p>A rotated square still ends where it started. The report now checks the worst error along the whole path, not only the endpoint.</p>
+        </article>
+      </div>
+
+      <figure class="plot">
+        <img src="assets/odom-vs-truth.png" alt="Three plots of a 3 m square drive. Cylinder wheels: the true path ends 118 cm from odometry. Sphere wheels with instant blade: a clean square rotated about 7 degrees. Sphere wheels with blade spin-up: the true path covers odometry exactly." width="2340" height="810" loading="lazy">
+        <figcaption>Orange: where the robot thinks it went. Blue: where it really went. Same drive, three robots. From <code>analysis/plot_paths.py</code> over the recorded MCAP bags.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mowing">
+    <div class="wrap">
+      <p class="eyebrow">Phase 4 in simulation</p>
+      <h2>It mows the lawn, and goes home to charge</h2>
+      <p class="section-lede">Headland laps round the edge, stripes across the middle, a ring round every flowerbed and tree. When the battery runs low it drives back to the dock, charges, and carries on where it stopped. Every number below comes from a pass/fail report over a recorded run.</p>
+
+      <div class="findings">
+        <article class="finding">
+          <p class="finding-metric"><span class="to">95.5%</span></p>
+          <h3>of the reachable lawn cut</h3>
+          <p>Measured from the blade's real path in Gazebo, on a 5 cm grid. No keep-out incursions; stays within 15 cm of the planned line while mowing.</p>
+        </article>
+        <article class="finding">
+          <p class="finding-metric"><span class="to">1.1 cm</span></p>
+          <h3>docking error, after a recharge</h3>
+          <p>It backs off, lines up 1 m out on the dock's axis and creeps in at 0.15 m/s. Contacts must stay closed for 0.15 s before it counts.</p>
+        </article>
+        <article class="finding">
+          <p class="finding-metric"><span class="to">~576 m²</span></p>
+          <h3>per 155 Wh charge</h3>
+          <p>208 mWh per square metre, from a battery model with a real voltage curve and internal resistance. It never dropped below 13% charge.</p>
+        </article>
+      </div>
+
+      <div class="yard-pair">
+        <figure><img src="assets/mow-coverage.png" alt="Coverage map of the test patch: cut cells in green covering the lawn round a flowerbed, the planned path overlaid" width="1350" height="1106" loading="lazy"><figcaption>What the blade actually cut, from ground truth: <code>analysis/coverage_report.py</code>.</figcaption></figure>
+        <figure><img src="assets/power-battery.png" alt="Battery voltage and state of charge over a mowing run: discharge while mowing, a return to the dock, a charge, and mowing resumed" width="1350" height="540" loading="lazy"><figcaption>Mow, return, charge, resume: <code>analysis/power_report.py</code>.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="wrap">
+      <p class="eyebrow">The plan</p>
+      <h2>From simulation to your yard, in stages</h2>
+      <p class="section-lede">The parts most likely to hurt someone are the blade guard, the body and the battery. A cheap commercial mower has already solved those, so the first real robot is a brain transplant, and the blade stays unplugged until the safety checklist passes.</p>
+
+      <ol class="stages">
+        <li class="stage is-done">
+          <span class="stage-code">H0</span>
+          <div><h3>Simulation</h3><p>Gazebo yard, ROS 2 Jazzy, telemetry into Elasticsearch, pass/fail reports. It mows, avoids obstacles, docks and charges, and it has found every bug on this page before any hardware existed.</p></div>
+          <span class="chip chip-done">Running</span>
+        </li>
+        <li class="stage">
+          <span class="stage-code">H1</span>
+          <div><h3>Bench and push-cart</h3><p>Raspberry Pi 5, RTK GNSS and an IMU on a garden cart. Survey the lawn boundary to centimetres, with no motors at all.</p></div>
+          <span class="chip">Next</span>
+        </li>
+        <li class="stage">
+          <span class="stage-code">H2</span>
+          <div><h3>Brain transplant, blade off</h3><p>A used YardForce Classic 500 with the open-source OpenMower mainboard and our ROS 2 stack. Drive, map, dock.</p></div>
+          <span class="chip">Planned</span>
+        </li>
+        <li class="stage">
+          <span class="stage-code">H3</span>
+          <div><h3>Blade on</h3><p>Only after every item on the safety checklist passes and is logged. Supervised mowing first.</p></div>
+          <span class="chip">Gated</span>
+        </li>
+        <li class="stage">
+          <span class="stage-code">H4</span>
+          <div><h3>Custom chassis</h3><p>Our own frame and motor controllers, matched to the sim. Only if the commercial body holds us back.</p></div>
+          <span class="chip">Optional</span>
+        </li>
+      </ol>
+
+      <div class="yard-pair">
+        <figure><img src="assets/yard-overhead.png" alt="Overhead render of the simulated yard: fenced lawn, house, tree, flowerbed, and the red mower" width="1280" height="720" loading="lazy"><figcaption>The simulated yard, rendered on the GPU with no window open.</figcaption></figure>
+        <figure><img src="assets/mower-camera.png" alt="The mower's front camera view: lawn, wooden fence, tree trunk" width="960" height="540" loading="lazy"><figcaption>What the mower's own camera sees.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="engineering" class="band">
+    <div class="wrap">
+      <p class="eyebrow">Engineering, in the open</p>
+      <h2>How it's put together</h2>
+      <p class="section-lede">The drawings are generated from the code. The software diagram checks every arrow against the running robot's message graph, so it can't drift.</p>
+      <div class="diagram-tabs" role="tablist" aria-label="Engineering diagrams">
+        <button type="button" role="tab" id="tab-sys" aria-selected="true" aria-controls="dg-sys">Electronics</button>
+        <button type="button" role="tab" id="tab-sw" aria-selected="false" aria-controls="dg-sw">Software</button>
+        <button type="button" role="tab" id="tab-int" aria-selected="false" aria-controls="dg-int">Blade interlock</button>
+        <button type="button" role="tab" id="tab-pwr" aria-selected="false" aria-controls="dg-pwr">Power</button>
+        <button type="button" role="tab" id="tab-ga" aria-selected="false" aria-controls="dg-ga">Dimensions</button>
+      </div>
+      <div class="diagram-panels">
+        <figure id="dg-sys" role="tabpanel" aria-labelledby="tab-sys"><div class="sheet"><img src="assets/diagrams/system-block.svg" alt="Electronics block diagram: sensors feed a Raspberry Pi 5; a Pico 2 safety MCU owns the blade enable; motor controllers on CAN; phone over Wi-Fi and Bluetooth" width="1100" height="560" loading="lazy"></div><figcaption>The Pi 5 thinks, the Pico 2 keeps it safe, the motor controllers move it.</figcaption></figure>
+        <figure id="dg-sw" role="tabpanel" aria-labelledby="tab-sw" hidden><div class="sheet"><img src="assets/diagrams/software-architecture.svg" alt="ROS 2 data flow from the simulator bridge through sensor models and two Kalman filters to the driver and the telemetry shipper" width="1200" height="640" loading="lazy"></div><figcaption>13 nodes, 24 topics, captured from the running simulation.</figcaption></figure>
+        <figure id="dg-int" role="tabpanel" aria-labelledby="tab-int" hidden><div class="sheet"><img src="assets/diagrams/blade-interlock.svg" alt="Blade interlock: normally-closed safety contacts in series with a watchdog and the blade request feed the blade controller enable" width="1100" height="500" loading="lazy"></div><figcaption>A hardware AND: any open contact, cut wire or frozen program stops the blade.</figcaption></figure>
+        <figure id="dg-pwr" role="tabpanel" aria-labelledby="tab-pwr" hidden><div class="sheet"><img src="assets/diagrams/power-architecture.svg" alt="Power architecture: e-stop on the traction bus, an always-on logic branch, charging through the battery management system" width="1100" height="600" loading="lazy"></div><figcaption>The e-stop cuts the motors; the computer stays on to record why.</figcaption></figure>
+        <figure id="dg-ga" role="tabpanel" aria-labelledby="tab-ga" hidden><div class="sheet"><img src="assets/diagrams/m1-three-view.svg" alt="Side, top and front views of the M1 with overall dimensions, wheel, blade and antenna positions" width="1200" height="760" loading="lazy"></div><figcaption>General arrangement, computed from the same maths as the 3D model.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy">
+    <div class="wrap">
+      <p class="eyebrow">What to buy · prices checked 8 Nov 2026</p>
+      <h2>Stage H1 parts list</h2>
+      <p class="section-lede">Start with the sensors. Localization is the hard part, and you can test it by pushing a cart around the lawn.</p>
+      <div class="table-scroll">
+        <table class="bom">
+          <thead><tr><th scope="col">Part</th><th scope="col">Why</th><th scope="col" class="num">Price</th></tr></thead>
+          <tbody>
+            <tr><td>Raspberry Pi 5, 8 GB</td><td>Runs the same ROS 2 container as the simulation</td><td class="num">$175</td></tr>
+            <tr><td>simpleRTK2B starter kit (u-blox ZED-F9P)</td><td>Centimetre-level RTK GNSS, antenna included</td><td class="num">€211</td></tr>
+            <tr><td>BNO085 9-DoF IMU</td><td>Heading and tilt; later the tilt-safety input</td><td class="num">$29.50</td></tr>
+            <tr><td>RTK corrections</td><td>A free state network where available, or your own base station</td><td class="num">$0–€172</td></tr>
+            <tr><td>PSU, cooler, NVMe SSD</td><td>Power, heat in the sun, room for recorded runs</td><td class="num">~$40–70</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Stage H1 total, depending on what you already own</td><td class="num">≈ $450–700</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="note">Prices move. Raspberry Pi raised prices several times in 2025–26. The full list, with sources and the H2 robot parts, is in <code>hardware/bom.md</code>.</p>
+    </div>
+  </section>
+
+  <section id="safety" class="band">
+    <div class="wrap safety-grid">
+      <div>
+        <p class="eyebrow eyebrow-warn">Safety</p>
+        <h2>Software decides when to mow. Hardware decides when it may.</h2>
+        <p class="section-lede">The blade motor's enable line runs through a chain of normally-closed contacts. Any one of them stops the blade, and a cut wire counts as unsafe.</p>
+        <p class="section-lede">Two buttons, no app needed. <b>STOP</b> latches: in the sim the wheels stop in 0.2 s and the blade is told to stop at once, and releasing it leaves the robot paused, never moving on its own. <b>HOME/GO</b>: a short press pauses or resumes, a long press sends it to the dock. The light ring shows what it's doing.</p>
+        <p class="note">This is a hobby project, not a certified product. The checklist in <code>hardware/safety.md</code> is a minimum, and the build manual's blade-on gate must pass first.</p>
+      </div>
+      <ul class="interlock" aria-label="Blade interlock chain">
+        <li><span class="node">Emergency stop</span><span class="why">latching switch that cuts power</span></li>
+        <li><span class="node">Lift sensors</span><span class="why">either side lifted</span></li>
+        <li><span class="node">Tilt</span><span class="why">past 25–30°</span></li>
+        <li><span class="node">Watchdog</span><span class="why">pulse every &lt; 100 ms, or the blade stops</span></li>
+        <li><span class="node">ROS request</span><span class="why">mission logic</span></li>
+        <li class="interlock-out"><span class="node">Blade enable</span><span class="why">active braking to a stop</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="open">
+    <div class="wrap">
+      <p class="eyebrow">Open source</p>
+      <h2>Everything in one repository</h2>
+      <div class="repo">
+        <pre class="tree" aria-label="Repository layout"><code><b>src/</b>            ROS 2 packages: robot, sim, telemetry
+<b>analysis/</b>       pass/fail reports over recorded runs
+<b>hardware/</b>       parts list, electrical, mechanical, safety
+<b>blog/</b>           the devlog and the build manual (this site)
+<b>docs/</b>           telemetry contracts, business, open source
+<b>website/</b>        this page
+<b>observability/</b>  Elasticsearch and Kibana as code</code></pre>
+        <div class="repo-copy">
+          <p>Run the whole experiment yourself, with no hardware:</p>
+          <pre class="cmd"><code>make build up
+make drive-run</code></pre>
+          <p>It drives a square in Gazebo, records the run, ships the telemetry and prints a pass/fail report.</p>
+          <p class="note">Licences are still being chosen: Apache-2.0 for software, CERN-OHL for hardware and CC BY-SA for docs are proposed. We credit and build on <a href="https://openmower.de/" rel="noopener">OpenMower</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="wordmark wordmark-small">fauerbot<span class="wordmark-dot" aria-hidden="true"></span></span>
+    <span>Phase 4 of 7 · simulation only · no blade yet</span>
+    <span>Built in the open by Chris Fauerbach and Claude</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/mower3d.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

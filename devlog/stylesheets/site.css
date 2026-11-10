@@ -1,0 +1,39 @@
+/* The devlog wears the website's identity (website/styles.css): survey-paper green neutrals, forest ink,
+   hi-vis orange for links and calls to action, Bricolage Grotesque headings, IBM Plex text and code. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap");
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #14231a;
+  --md-primary-fg-color--light: #2b3d31;
+  --md-primary-fg-color--dark: #0b150f;
+  --md-primary-bg-color: #f2f5f0;
+  --md-accent-fg-color: #d9500c;
+  --md-default-bg-color: #f2f5f0;
+  --md-default-fg-color: #14231a;
+  --md-default-fg-color--light: #4a5a4f;
+  --md-typeset-a-color: #b8430a;
+  --md-code-bg-color: #e5ebe1;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #151f19;
+  --md-primary-fg-color--light: #1f2d24;
+  --md-primary-fg-color--dark: #0f1612;
+  --md-primary-bg-color: #e3eae1;
+  --md-accent-fg-color: #f0692a;
+  --md-default-bg-color: #0f1612;
+  --md-hue: 140;
+  --md-typeset-a-color: #f0692a;
+  --md-code-bg-color: #151f19;
+}
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-header__title {
+  font-family: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.md-typeset h1 { font-weight: 800; color: var(--md-default-fg-color); }
+.md-header__title .md-header__topic:first-child { font-weight: 800; }
+.md-typeset a { text-underline-offset: 3px; }
+.md-banner { background: var(--md-primary-fg-color--dark); font-size: 0.7rem; }
+.md-banner .site-home { color: var(--md-accent-fg-color); font-weight: 600; text-decoration: none; }
+.md-banner .site-sep { opacity: 0.5; margin: 0 0.4em; }
