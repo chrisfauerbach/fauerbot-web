@@ -650,6 +650,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-long-grass-rule-and-three-ways-to-trap-a-robot-in-a-patch-of-grass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The long-grass rule, and three ways to trap a robot in a patch of grass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grass-is-not-an-obstacle-it-took-nine-stops-to-get-there" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -742,17 +753,6 @@
     <span class="md-ellipsis">
       
         Know where you are: IMU, RTK GPS and two Kalman filters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-robot-that-lies-about-where-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A robot that lies about where it is
       
     </span>
   </a>
@@ -1272,6 +1272,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-long-grass-rule-and-three-ways-to-trap-a-robot-in-a-patch-of-grass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The long-grass rule, and three ways to trap a robot in a patch of grass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#grass-is-not-an-obstacle-it-took-nine-stops-to-get-there" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1370,17 +1381,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#a-robot-that-lies-about-where-it-is" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A robot that lies about where it is
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1395,6 +1395,61 @@
       <header class="md-typeset">
         <h1 id="experiments">Experiments</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-10 07:00:00+00:00">November 10, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../experiments.html" class="md-meta__link">Experiments</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              6 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="the-long-grass-rule-and-three-ways-to-trap-a-robot-in-a-patch-of-grass"><a class="toclink" href="../../../2026/11/10/the-long-grass-rule.html">The long-grass rule, and three ways to trap a robot in a patch of grass</a></h2>
+<p>Last night's result was uncomfortable: the 3D lidar sees a 10 cm hedgehog in 5 cm grass and loses it in 7 cm grass.
+Height is all the lidar measures, so the lawn has to stay short enough for an animal to stand out of it. That's the
+<strong>long-grass rule</strong> (decision D2): if the uncut grass ahead is too tall, the robot doesn't mow it. It stops the blade,
+goes home and says the lawn is overdue. An owner switch in the app turns the rule off for one mow.</p>
+<p>Building it took one measurement that worked first time, one rule that worked first time, and a clearance that
+trapped the robot three different ways before we found the version that can't.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../../2026/11/10/the-long-grass-rule.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1873,57 +1928,6 @@ there meant catching a sensor configured in the wrong units, a ground truth that
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-08 19:40:00+00:00">November 8, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../simulation.html" class="md-meta__link">Simulation</a>, 
-              <a href="../../experiments.html" class="md-meta__link">Experiments</a>, 
-              <a href="../../telemetry.html" class="md-meta__link">Telemetry</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              6 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="a-robot-that-lies-about-where-it-is"><a class="toclink" href="../../../2026/11/08/a-robot-that-lies-about-where-it-is.html">A robot that lies about where it is</a></h2>
-<p>Phase 2 put a mower in a yard. The first time it drove a square, it was sure it ended up back where it started. It was 1.2 m off. Then we fixed that and the endpoint looked perfect, but the robot had still driven the wrong square. Three bugs, one per layer: physics, mechanics, and our own analysis.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../../2026/11/08/a-robot-that-lies-about-where-it-is.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
       
         
           
@@ -1949,6 +1953,10 @@ there meant catching a sensor configured in the wrong units, a ground truth that
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Words and pictures <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · code Apache 2.0
+    </div>
   
   
     Made with
