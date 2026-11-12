@@ -1113,6 +1113,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mowing patterns: five runs to mow a lawn without touching the flowerbed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-hedgehog-test-why-the-mower-needs-to-look-down" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1211,17 +1222,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#phase-1-telemetry-before-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Phase 1: Telemetry before code
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1236,6 +1236,61 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-09 02:00:00+00:00">November 9, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../category/experiments.html" class="md-meta__link">Experiments</a>, 
+              <a href="../../category/ros.html" class="md-meta__link">ROS</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed"><a class="toclink" href="../../2026/11/09/mowing-patterns.html">Mowing patterns: five runs to mow a lawn without touching the flowerbed</a></h2>
+<p>Phase 4 is the one Chris was waiting for: the robot plans a mowing pattern for a lawn and mows it. A planner turns the
+lawn (a GeoJSON polygon with keep-outs) into a path, a follower drives it on the RTK pose, and a report says, with
+ground truth, what got cut and whether anything went wrong. The first run finished the lawn. It also drove into the
+flowerbed 24 times. This post is about the four fixes between that run and a clean one, and about the tool that made
+the last fixes take seconds instead of minutes.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2026/11/09/mowing-patterns.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1689,56 +1744,6 @@ researched and decided, and the one market fact that changed the plan.</p>
     
       <nav class="md-post__action">
         <a href="../../2026/11/08/the-session-that-vanished.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-08 17:20:00+00:00">November 8, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/telemetry.html" class="md-meta__link">Telemetry</a>, 
-              <a href="../../category/ros.html" class="md-meta__link">ROS</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              3 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="phase-1-telemetry-before-code"><a class="toclink" href="../../2026/11/08/phase-1-telemetry-first.html">Phase 1: Telemetry before code</a></h2>
-<p>Chris's rule for this phase: <em>"Before we build something in code, maybe it should have new telemetry?"</em> So before the first ROS node existed, we wrote down the questions we'd ask of its data.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2026/11/08/phase-1-telemetry-first.html">
           Continue reading
         </a>
       </nav>

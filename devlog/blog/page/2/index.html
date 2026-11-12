@@ -1113,6 +1113,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#raised-beds-a-margin-a-switch-and-a-flowerbed-mistaken-for-long-grass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raised beds: a margin, a switch, and a flowerbed mistaken for long grass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-website-gets-a-front-door-and-a-budget" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1211,17 +1222,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mowing patterns: five runs to mow a lawn without touching the flowerbed
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1236,6 +1236,62 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-10 15:00:00+00:00">November 10, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/simulation.html" class="md-meta__link">Simulation</a>, 
+              <a href="../../category/experiments.html" class="md-meta__link">Experiments</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="raised-beds-a-margin-a-switch-and-a-flowerbed-mistaken-for-long-grass"><a class="toclink" href="../../2026/11/10/raised-beds.html">Raised beds: a margin, a switch, and a flowerbed mistaken for long grass</a></h2>
+<p>The sim's flowerbed is a 15 cm raised box. To the 3D lidar, its edge is an obstacle like any other, and the safety
+gate never lets the robot's nose get closer than about 0.57 m to an obstacle (the lidar's blind range for a 4 cm
+object, plus 10 cm). The planner ended stripes 0.26 m from keep-outs. Those two numbers can't both hold, so we decided
+on option C: by default the robot keeps further from <strong>raised</strong> keep-outs and leaves the strip for the trimmer, and
+an owner switch lets it mow right up to them.</p>
+<p>Building it turned up three more bugs. A raised bed can pass for long grass, and so can a fence. And the robot's route
+home could take it into a corner it couldn't get out of.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2026/11/10/raised-beds.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1704,61 +1760,6 @@ needed to be.</p>
     
       <nav class="md-post__action">
         <a href="../../2026/11/09/the-hedgehog-that-vanished.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-09 02:00:00+00:00">November 9, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/simulation.html" class="md-meta__link">Simulation</a>, 
-              <a href="../../category/experiments.html" class="md-meta__link">Experiments</a>, 
-              <a href="../../category/ros.html" class="md-meta__link">ROS</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              7 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="mowing-patterns-five-runs-to-mow-a-lawn-without-touching-the-flowerbed"><a class="toclink" href="../../2026/11/09/mowing-patterns.html">Mowing patterns: five runs to mow a lawn without touching the flowerbed</a></h2>
-<p>Phase 4 is the one Chris was waiting for: the robot plans a mowing pattern for a lawn and mows it. A planner turns the
-lawn (a GeoJSON polygon with keep-outs) into a path, a follower drives it on the RTK pose, and a report says, with
-ground truth, what got cut and whether anything went wrong. The first run finished the lawn. It also drove into the
-flowerbed 24 times. This post is about the four fixes between that run and a clean one, and about the tool that made
-the last fixes take seconds instead of minutes.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2026/11/09/mowing-patterns.html">
           Continue reading
         </a>
       </nav>
