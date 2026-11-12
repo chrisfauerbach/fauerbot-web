@@ -652,6 +652,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#which-way-is-it-facing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which way is it facing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#things-that-move" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -744,17 +755,6 @@
     <span class="md-ellipsis">
       
         Corners: stop short, turn, merge
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raised-beds-a-margin-a-switch-and-a-flowerbed-mistaken-for-long-grass" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Raised beds: a margin, a switch, and a flowerbed mistaken for long grass
       
     </span>
   </a>
@@ -1274,6 +1274,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#which-way-is-it-facing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which way is it facing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#things-that-move" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1372,17 +1383,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#raised-beds-a-margin-a-switch-and-a-flowerbed-mistaken-for-long-grass" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Raised beds: a margin, a switch, and a flowerbed mistaken for long grass
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1397,6 +1397,58 @@
       <header class="md-typeset">
         <h1 id="experiments">Experiments</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../../images/authors/chris.svg" alt="Chris">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-11-13 00:30:00+00:00">November 13, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="experiments.html" class="md-meta__link">Experiments</a>, 
+              <a href="simulation.html" class="md-meta__link">Simulation</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="which-way-is-it-facing"><a class="toclink" href="../2026/11/13/which-way-is-it-facing.html">Which way is it facing?</a></h2>
+<p>The last post ended with one false alarm left: a fence that "moved" because the robot thought it was facing 7° away
+from where it really was. 7° doesn't sound like much. At 5 m it moves a fence 60 cm, and that's enough to look like
+something walking. This post fixes the heading, and on the way found that the simulator had been flattering us.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../2026/11/13/which-way-is-it-facing.html">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1861,62 +1913,6 @@ wall it would simply have hit it.</p>
     
       <nav class="md-post__action">
         <a href="../2026/11/10/lap-corners.html">
-          Continue reading
-        </a>
-      </nav>
-    
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="../../images/authors/chris.svg" alt="Chris">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2026-11-10 15:00:00+00:00">November 10, 2026</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="simulation.html" class="md-meta__link">Simulation</a>, 
-              <a href="experiments.html" class="md-meta__link">Experiments</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              7 min read
-            
-          </li>
-        
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="raised-beds-a-margin-a-switch-and-a-flowerbed-mistaken-for-long-grass"><a class="toclink" href="../2026/11/10/raised-beds.html">Raised beds: a margin, a switch, and a flowerbed mistaken for long grass</a></h2>
-<p>The sim's flowerbed is a 15 cm raised box. To the 3D lidar, its edge is an obstacle like any other, and the safety
-gate never lets the robot's nose get closer than about 0.57 m to an obstacle (the lidar's blind range for a 4 cm
-object, plus 10 cm). The planner ended stripes 0.26 m from keep-outs. Those two numbers can't both hold, so we decided
-on option C: by default the robot keeps further from <strong>raised</strong> keep-outs and leaves the strip for the trimmer, and
-an owner switch lets it mow right up to them.</p>
-<p>Building it turned up three more bugs. A raised bed can pass for long grass, and so can a fence. And the robot's route
-home could take it into a corner it couldn't get out of.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../2026/11/10/raised-beds.html">
           Continue reading
         </a>
       </nav>
