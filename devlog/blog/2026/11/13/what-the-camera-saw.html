@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://chrisfauerbach.github.io/fauerbot-web/devlog/blog/2026/11/13/what-the-camera-saw.html">
       
       
-        <link rel="prev" href="birdie-and-felix.html">
+        <link rel="prev" href="clover-and-moose.html">
       
       
         <link rel="next" href="the-ghost-on-the-mound.html">
@@ -1290,7 +1290,7 @@
 
 
 <h1 id="what-the-camera-saw">What the camera saw</h1>
-<p>The <a href="birdie-and-felix.html">last post</a> ended with the robot's camera never calling either dog a dog, and a
+<p>The <a href="clover-and-moose.html">last post</a> ended with the robot's camera never calling either dog a dog, and a
 guess why: they came in from the side, and the camera looks forward. So we gave the camera a fair test, with a dog
 that crosses in front. The guess turned out to be only part of the answer. On the way we found three more problems,
 all in our own code. The fourth answer is about the simulator itself.</p>
@@ -1298,24 +1298,24 @@ all in our own code. The fourth answer is about the simulator itself.</p>
 
 <h2 id="a-dog-that-crosses-in-front">A dog that crosses in front</h2>
 <p>A new scenario: the dog trots across 3.5 m ahead of the robot, stops in its path to sniff the grass for 8 seconds,
-then trots on. Here's Felix:</p>
+then trots on. Here's Moose:</p>
 <video controls muted playsinline preload="metadata" width="100%"
-       poster="../../../../images/2026-11-13/felix-crosses-ahead.jpg"
-       src="../../../../images/2026-11-13/felix-crosses-ahead.mp4"></video>
+       poster="../../../../images/2026-11-13/moose-crosses-ahead.jpg"
+       src="../../../../images/2026-11-13/moose-crosses-ahead.mp4"></video>
 
 <p>The first two tries went wrong in an instructive way. The test lawn is a strip along the north fence, so on many
-lanes "3.5 m ahead" is mostly fence. Felix appeared there, trotted one metre and stood still. A dog that has barely
+lanes "3.5 m ahead" is mostly fence. Moose appeared there, trotted one metre and stood still. A dog that has barely
 moved, standing against a fence, looks just like part of the fence to the lidar. The robot treated him as an ordinary
 obstacle until he trotted off. That's still safe, since nothing moving had been missed, but it wasn't the test we
 meant. Now the dog waits until the robot is facing open lawn, and comes from the side with room to run.</p>
-<p>With that fixed, every safety check passes: Felix is flagged as moving at 4.2 m, the blade goes off, and the robot
+<p>With that fixed, every safety check passes: Moose is flagged as moving at 4.2 m, the blade goes off, and the robot
 stops 2.1 m short of him and waits 34 s after he's gone.</p>
 <h2 id="three-things-the-camera-never-saw">Three things the camera never saw</h2>
 <p>Which frames did the robot's own camera actually get? We don't record camera images: that's a privacy rule we decided
 early on. So we added a debug switch that saves the masked frames, the ones the detector sees, during a sim run.</p>
 <p><strong>1. Legs only.</strong> The privacy mask blacks out everything that isn't our lawn before the detector runs: the
-neighbour's garden, the street, the house. Here's what was left of Felix:</p>
-<p><img alt="The robot's view: the mask has kept only Felix's legs" src="../../../../images/2026-11-13/robot-view-1-ground-only.jpg" /></p>
+neighbour's garden, the street, the house. Here's what was left of Moose:</p>
+<p><img alt="The robot's view: the mask has kept only Moose's legs" src="../../../../images/2026-11-13/robot-view-1-ground-only.jpg" /></p>
 <p>The detector called the legs "person". The mask was designed to use the 3D lidar as evidence of what stands on our
 lawn: a lidar return on the dog, inside the lawn, keeps the pixels around it. <strong>The perception node never gave the
 mask the lidar.</strong> With no lidar, it fell back to its strictest rule: keep a pixel only if, followed down, it hits our
@@ -1327,19 +1327,19 @@ between his highest lidar return and the fence return went black, which is exact
 new rule keeps up to 40 cm above a low object's highest return, at its own distance. The privacy cost is bounded:
 at most a 40 cm strip of whatever is directly behind the dog. A test checks that it never applies to the lawn's own
 far edge.</p>
-<p><img alt="With the lidar: Felix's body is back, his head cut by the top of the picture" src="../../../../images/2026-11-13/robot-view-2-with-lidar.jpg" /></p>
+<p><img alt="With the lidar: Moose's body is back, his head cut by the top of the picture" src="../../../../images/2026-11-13/robot-view-2-with-lidar.jpg" /></p>
 <p><strong>3. The top of the picture.</strong> Now the mask keeps him, and the <em>camera</em> cuts his head off. Every robot's camera
 points 14.3° down. That's 0.25 radians, a round number nobody chose. With the camera 32 cm up, the top of the picture
-is only 5° above level: at 3 m, that's 58 cm high, and Felix's head is higher. Tilted to 8°, he fits:</p>
-<p><img alt="Camera tilted 8° down: all of Felix" src="../../../../images/2026-11-13/robot-view-3-tilt-8.jpg" /></p>
+is only 5° above level: at 3 m, that's 58 cm high, and Moose's head is higher. Tilted to 8°, he fits:</p>
+<p><img alt="Camera tilted 8° down: all of Moose" src="../../../../images/2026-11-13/robot-view-3-tilt-8.jpg" /></p>
 <p>That run gave the first "dog" from the robot's own camera, at 2.6 m. It was <strong>one frame out of 25</strong>.</p>
 <h2 id="four-the-dogs-themselves">Four: the dogs themselves</h2>
 <p>So we replayed the saved frames through the detector offline. We tried a mid-grey fill instead of black, then a
-lawn-coloured one, then the next model size up (YOLOX-tiny). None of it helped. With Felix side-on, sniffing, the
+lawn-coloured one, then the next model size up (YOLOX-tiny). None of it helped. With Moose side-on, sniffing, the
 detector's best guesses are "cow 0.14" and "chair 0.13".</p>
 <p>This is where the simulator stops being useful for this question. Our dogs are about 30 smooth ellipsoids each.
 The detector learned "dog" from hundreds of thousands of photos of fur, faces and real light. A blob dog fooling it
-says nothing about how it does with Birdie or Felix in the real yard. Tuning against blob dogs would only make the
+says nothing about how it does with Clover or Moose in the real yard. Tuning against blob dogs would only make the
 numbers look better.</p>
 <p>The bugs were real, though, and they would have shipped. The dogs were drawn white, the mask was missing its lidar,
 a dog's head was masked off, and the camera tilt was never chosen. None of them showed up in a unit test, and all of
@@ -1357,28 +1357,28 @@ them showed up the first time we looked at what the robot actually saw.</p>
 <tbody>
 <tr>
 <td>cam-8 (crossing fixed, mask ground-only)</td>
-<td>Felix</td>
+<td>Moose</td>
 <td>PASS</td>
 <td>34</td>
 <td>0</td>
 </tr>
 <tr>
 <td>cam-9 (mask with lidar, camera 14.3°)</td>
-<td>Felix</td>
+<td>Moose</td>
 <td>PASS</td>
 <td>35</td>
 <td>0</td>
 </tr>
 <tr>
 <td>dbg-2 (camera 8°)</td>
-<td>Felix</td>
+<td>Moose</td>
 <td>n/a, short run</td>
 <td>25</td>
 <td>1 (0.44 at 2.6 m)</td>
 </tr>
 <tr>
 <td>cam-10 (mask with lidar, camera 14.3°)</td>
-<td>Birdie</td>
+<td>Clover</td>
 <td>PASS</td>
 <td>35</td>
 <td>0</td>
