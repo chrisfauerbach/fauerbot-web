@@ -69,7 +69,7 @@ window.FAUERBOT_PLATFORMS = {
     "x": 0.46,
     "y": 0.0,
     "z": 0.32,
-    "pitch_deg": 14.3
+    "pitch_deg": 8
    }
   }
  },
